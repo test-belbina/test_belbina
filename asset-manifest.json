@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/test-belbina/static/css/main.91277e46.chunk.css",
+    "main.js": "/test-belbina/static/js/main.98698287.chunk.js",
+    "main.js.map": "/test-belbina/static/js/main.98698287.chunk.js.map",
+    "runtime-main.js": "/test-belbina/static/js/runtime-main.1eca5deb.js",
+    "runtime-main.js.map": "/test-belbina/static/js/runtime-main.1eca5deb.js.map",
+    "static/css/2.0978f8b3.chunk.css": "/test-belbina/static/css/2.0978f8b3.chunk.css",
+    "static/js/2.d9fb07fd.chunk.js": "/test-belbina/static/js/2.d9fb07fd.chunk.js",
+    "static/js/2.d9fb07fd.chunk.js.map": "/test-belbina/static/js/2.d9fb07fd.chunk.js.map",
+    "index.html": "/test-belbina/index.html",
+    "static/css/2.0978f8b3.chunk.css.map": "/test-belbina/static/css/2.0978f8b3.chunk.css.map",
+    "static/css/main.91277e46.chunk.css.map": "/test-belbina/static/css/main.91277e46.chunk.css.map",
+    "static/js/2.d9fb07fd.chunk.js.LICENSE.txt": "/test-belbina/static/js/2.d9fb07fd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1eca5deb.js",
+    "static/css/2.0978f8b3.chunk.css",
+    "static/js/2.d9fb07fd.chunk.js",
+    "static/css/main.91277e46.chunk.css",
+    "static/js/main.98698287.chunk.js"
+  ]
+}
