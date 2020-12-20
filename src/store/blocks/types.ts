@@ -1,0 +1,2 @@
+export const LOAD_BLOCKS = "LOAD_BLOCKS";
+export const LOAD_BLOCKS_SUCCESS = "LOAD_BLOCKS_SUCCESS";

@@ -1,0 +1,1 @@
+export const SET_STATUS_ASYNC = "SET_STATUS_ASYNC";

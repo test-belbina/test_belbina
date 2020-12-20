@@ -1,0 +1,327 @@
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import useCustomSelector from "src/hooks/useCustomSelector";
+import useCustomDispatch from 'src/hooks/useCustomDispatch';
+import { Link as RouterLink } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
+import Slider from "@material-ui/core/Slider";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+import { QuestionCircle as InfoIcon } from "@styled-icons/bootstrap/QuestionCircle";
+import IconButton from "@material-ui/core/IconButton";
+
+import { questions, questionLength } from '../../text/questions';
+import { questionState } from 'src/store/rootSelector';
+import { setValue } from 'src/store/questions/actions';
+
+const useStyles = {
+    instructionsText: {
+        fontSize: "1em",
+        lineHeight: 1.1,
+    },
+    violet: {
+        "& .MuiSlider-markLabelActive": {
+            color: '#25006e',
+            fontWeight: '700'
+        }
+    },
+    instruction: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        border: '2px solid #3c0068',
+        backgroundColor: '#fffacd',
+        borderRadius: '15px',
+        padding: '0',
+        marginTop: '5px',
+        overflow: 'hidden',
+        maxHeight: 'auto',
+        transition: 'max-height 2s, padding 0.5s, border 0.5s'
+    },
+    instructionOpened: {
+        maxHeight: 'auto',
+        border: '2px solid #3c0068',
+        padding: '10px',
+        paddingBottom: '8px',
+    },
+    instructionClosed: {
+       maxHeight: '0',
+       padding: '0',
+       border: 'none'
+    }
+};
+
+function TestPage( props: any ) {
+
+    const [ blockId, setBlockId ] = useState(0);
+    const [openInfo, setOpenInfo] = useState(false);
+    const [ instrcutionModal, setInstructionModal ] = useState(false);
+
+    const { classes } = props;
+
+    const questionsRate = useCustomSelector(questionState);
+    const dispatch = useCustomDispatch();
+
+    useEffect(() => {
+        const blockId = props.match.params.idBlock;
+        setBlockId(blockId - 1);
+    });
+
+    const currentQuestions = questions[blockId];
+    const sumValueQuestions = questionsRate[blockId].reduce((acc: any, val: any) => acc + val, 0);
+    const possibleMaximumValueQuestion = 10 - sumValueQuestions;
+
+    const handleChangeQuestion = (value: any, id: any) => {
+            dispatch(setValue(id, blockId, value)); 
+    };
+
+        return (
+            <>
+            <div style={{ padding: '1em 1em 2.1em 1em'}}>
+                {blockId === 0 && 
+                <Typography 
+                gutterBottom 
+                variant={"h5"} 
+                component={"h1"} 
+                align={'center'} style={{
+                    marginBottom: '20px'
+                }}>
+                    Тест Белбина на вашу роль в команде
+                </Typography>}
+
+                {blockId === 0 &&
+                    <Typography 
+                    gutterBottom 
+                    className={classes.instructionsText} 
+                    style={{fontSize: '14px', lineHeight: '20px', margin: '0'}}>
+                    <Bold>Инструкция.</Bold> В каждом из семи блоков данного теста распределите 10 баллов между
+                    возможными ответами согласно тому, как вы полагаете они лучше всего подходят вашему собственному
+                    поведению. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10
+                    баллов.
+                </Typography>}
+                <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                    <Typography 
+                    gutterBottom 
+                    variant={"h6"} 
+                    component={"h2"} 
+                    style={{ margin: '0' }}>
+                        Часть { blockId + 1 } из { questionLength }
+                    </Typography>
+                    {blockId !== 0 && 
+                    <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    onClick={() => setInstructionModal(!instrcutionModal)}
+                    >
+                        Инструкция
+                    </Button>}
+                </div>
+                <div className={
+                    instrcutionModal ? classes.instruction + ' ' + classes.instructionOpened
+                                    : classes.instruction + ' ' + classes.instructionClosed }> 
+                    <Typography 
+                    gutterBottom 
+                    className={classes.instructionsText} 
+                    style={{fontSize: '14px', lineHeight: '20px'}}>
+                        <Bold>Инструкция.</Bold> В каждом из семи блоков данного теста распределите 10 баллов между
+                        возможными ответами согласно тому, как вы полагаете они лучше всего подходят вашему собственному
+                        поведению. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10
+                        баллов.
+                    </Typography>
+                </div>
+
+                <FixNameBlock>
+                    <Typography variant={"h6"} component={"h2"}>
+                        <Bold>{currentQuestions.title}</Bold>
+                    </Typography>
+                </FixNameBlock>
+
+                {currentQuestions.questions.map((question: any, index: any) => (
+                    <WrapperQuestion key={index}>
+                        <WrapperLabel>
+                            <Typography id={"slider-question-" + index} gutterBottom>
+                                {question}
+                            </Typography>
+                        </WrapperLabel>
+                        <WrapperWrapperSlider>
+                            <WrapperSlider paddingRight={(questionsRate[blockId][index] + possibleMaximumValueQuestion) * 10}>
+                                <Slider
+                                    onChange={(event, value) =>
+                                        handleChangeQuestion(value, index)
+                                    }
+                                    value={questionsRate[blockId][index]}
+                                    defaultValue={0}
+                                    aria-labelledby="discrete-slider-restrict"
+                                    step={1}
+                                    min={0}
+                                    max={
+                                        questionsRate[blockId][index] + possibleMaximumValueQuestion === 0
+                                            ? 1
+                                            : questionsRate[blockId][index] + possibleMaximumValueQuestion
+                                    }
+                                    valueLabelDisplay="auto"
+                                    marks={marks}
+                                    className={classes.violet}
+                                    disabled={questionsRate[blockId][index] + possibleMaximumValueQuestion === 0}
+                                />
+                            </WrapperSlider>
+                        </WrapperWrapperSlider>
+                    </WrapperQuestion>
+                ))}
+            </div>
+            <WrapperControlPanel>
+            {possibleMaximumValueQuestion !== 0 && 
+            <>
+                <p style={{ marginRight: '2%', textAlign: 'center'}}> 
+                    {possibleMaximumValueQuestion === 1 ? 'Остался ' : 'Осталось '}
+                    {possibleMaximumValueQuestion} 
+                    {possibleMaximumValueQuestion >= 5 ? ' баллов ' :
+                    (possibleMaximumValueQuestion > 1 ? ' балла ' : ' балл ') } 
+                    из 10 
+                </p> 
+                <WrapperTooltipInfo>
+                    <TooltipInfo open={openInfo}>
+                        <Typography>
+                            Нужно распределить <b>{possibleMaximumValueQuestion}</b> из 10 баллов для продолжение
+                            теста
+                        </Typography>
+                        <ButtonInfo onClick={() => setOpenInfo(false)}>Понятно</ButtonInfo>
+                    </TooltipInfo>
+                    <IconButton aria-label="info" onClick={() => setOpenInfo(true)}>
+                        <InfoIconStyled size="20" />
+                    </IconButton>
+                </WrapperTooltipInfo>
+            </>}
+
+                {blockId + 1 < questionLength && (
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        to={"/block/" + (blockId + 2)}
+                        component={RouterLink}
+                        disabled={sumValueQuestions < 10}
+                    >
+                        Далее
+                    </Button>
+                )}
+
+                {blockId + 1 === questionLength && (
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        to="/test_result"
+                        component={RouterLink}
+                        disabled={sumValueQuestions < 10}
+                    >
+                        Результат
+                    </Button>
+                )}
+            </WrapperControlPanel>
+            </>
+        );
+}
+
+export default withStyles(useStyles)(TestPage);
+
+
+const WrapperQuestion = styled.div`
+`;
+
+const WrapperWrapperSlider = styled.div`
+    padding: 0 2em;
+`;
+
+const WrapperSlider = styled.div`
+    width: ${(props: { paddingRight: number }) => (props.paddingRight > 0 ? props.paddingRight : 10)}%;
+    display: flex;
+    user-select: none;
+`;
+
+const WrapperLabel = styled.div`
+    user-select: none;
+`;
+
+const Bold = styled.strong`
+    font-weight: bold;
+`;
+
+const FixNameBlock = styled.div`
+    position: sticky;
+    top: 0;
+    font-size: 1.25em;
+    padding: 8px 0;
+    min-height: 2em;
+    z-index: 10000;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+`;
+
+const WrapperControlPanel = styled.div`
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    width: 100%;
+    z-index: 10000;
+    max-width: 935px;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+
+    @media screen and (max-width: 400px) {
+        display: flex;
+        flex-direction: column !important;
+    }
+`;
+
+const InfoIconStyled = styled(InfoIcon)`
+    color: #3f51b5;
+`;
+
+const WrapperTooltipInfo = styled.div`
+    position: relative;
+    display: inline-block;
+`;
+
+const TooltipInfo = styled.div`
+    visibility: ${(props: { open: boolean }) => (props.open ? "visible" : "hidden")};
+    width: 240px;
+    background-color: #1c1c1c;
+    color: #ccc;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+
+    bottom: 100%;
+    left: 50%;
+    margin-left: -120px;
+    position: absolute;
+    z-index: 1;
+`;
+
+const ButtonInfo = styled.div`
+    cursor: pointer;
+    background-color: #fff;
+    color: #242424;
+    padding: 0.5em;
+    margin: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+`;
+
+const marks = [
+    { value: 0, label: "0" },
+    { value: 1, label: "1" },
+    { value: 2, label: "2" },
+    { value: 3, label: "3" },
+    { value: 4, label: "4" },
+    { value: 5, label: "5" },
+    { value: 6, label: "6" },
+    { value: 7, label: "7" },
+    { value: 8, label: "8" },
+    { value: 9, label: "9" },
+    { value: 10, label: "10" },
+];
