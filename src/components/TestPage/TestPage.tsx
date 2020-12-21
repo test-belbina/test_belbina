@@ -81,7 +81,7 @@ function TestPage( props: any ) {
 
         return (
             <>
-            <div style={{ padding: '0.5em 1em 0em 1em'}}>
+            <div style={{ padding: '0.5em 1em 2.1em 1em'}}>
                 {blockId === 0 && 
                 <Typography 
                 gutterBottom 
@@ -135,7 +135,11 @@ function TestPage( props: any ) {
                 </div>
 
                 <FixNameBlock>
-                    <Typography variant={"h6"} component={"h2"} style={{ textTransform: 'uppercase'}}>
+                    <Typography 
+                    variant={"h6"} 
+                    component={"h2"} 
+                    style={{ textTransform: 'uppercase'}}
+                    >
                         <Bold>{currentQuestions.title}</Bold>
                     </Typography>
                 </FixNameBlock>
@@ -143,7 +147,10 @@ function TestPage( props: any ) {
                 {currentQuestions.questions.map((question: any, index: any) => (
                     <WrapperQuestion key={index}>
                         <WrapperLabel>
-                            <Typography id={"slider-question-" + index} gutterBottom style={{ margin: '0'}}>
+                            <Typography 
+                            id={"slider-question-" + index} 
+                            gutterBottom 
+                            style={ index === 0 ? { margin: '0', marginTop: '15px'} : { margin: '0'}} >
                                 {index + 1}.  {question}
                             </Typography>
                         </WrapperLabel>
