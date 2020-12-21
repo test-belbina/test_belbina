@@ -184,8 +184,6 @@ export default function ResultPage() {
                 </TableContainer>
                 
                 <div style={{ 
-                    borderTop: '2.5px solid #3c0068', 
-                    borderBottom: '2.5px solid #3c0068',
                     margin: '20px 0',
                     padding: '10px 0',
                     display: 'flex',
@@ -217,7 +215,7 @@ export default function ResultPage() {
 
                 <Box mb={"1em"}>
                     <Typography gutterBottom variant={"h4"} component={"h3"} style={{textAlign: 'center'}}>
-                        Интерпретация результата
+                        Описание ролей
                     </Typography>
 
                         {mainValue !== undefined &&

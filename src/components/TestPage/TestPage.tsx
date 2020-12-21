@@ -81,14 +81,14 @@ function TestPage( props: any ) {
 
         return (
             <>
-            <div style={{ padding: '1em 1em 2.1em 1em'}}>
+            <div style={{ padding: '0em 1em 0em 1em'}}>
                 {blockId === 0 && 
                 <Typography 
                 gutterBottom 
                 variant={"h5"} 
                 component={"h1"} 
                 align={'center'} style={{
-                    marginBottom: '20px'
+                    marginBottom: '0'
                 }}>
                     Тест Белбина на вашу роль в команде
                 </Typography>}
@@ -138,7 +138,7 @@ function TestPage( props: any ) {
                 {currentQuestions.questions.map((question: any, index: any) => (
                     <WrapperQuestion key={index}>
                         <WrapperLabel>
-                            <Typography id={"slider-question-" + index} gutterBottom>
+                            <Typography id={"slider-question-" + index} gutterBottom style={{ margin: '0'}}>
                                 {index + 1}.  {question}
                             </Typography>
                         </WrapperLabel>
@@ -248,11 +248,11 @@ const FixNameBlock = styled.div`
     position: sticky;
     top: 0;
     font-size: 1.25em;
-    padding: 8px 0;
+    padding: 2px 0;
     min-height: 2em;
     z-index: 10000;
     background-color: #fff;
-    border-bottom: 2.5px solid #3c0068;
+    border-bottom: 2px solid #3c0068;
 `;
 
 const WrapperControlPanel = styled.div`
@@ -267,11 +267,10 @@ const WrapperControlPanel = styled.div`
     z-index: 10000;
     max-width: 935px;
     background-color: #fff;
-    border-top: 2.5px solid #3c0068;
+    border-top: 1px solid #eee;
 
     @media screen and (max-width: 400px) {
-        display: flex;
-        flex-direction: column !important;
+        padding: 7px;
     }
 `;
 
