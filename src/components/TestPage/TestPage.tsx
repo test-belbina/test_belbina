@@ -81,14 +81,14 @@ function TestPage( props: any ) {
 
         return (
             <>
-            <div style={{ padding: '0em 1em 0em 1em'}}>
+            <div style={{ padding: '0.5em 1em 0em 1em'}}>
                 {blockId === 0 && 
                 <Typography 
                 gutterBottom 
                 variant={"h5"} 
                 component={"h1"} 
                 align={'center'} style={{
-                    marginBottom: '0'
+                    marginBottom: '5px'
                 }}>
                     Тест Белбина на вашу роль в команде
                 </Typography>}
@@ -100,7 +100,12 @@ function TestPage( props: any ) {
                     style={{fontSize: '14px', lineHeight: '20px', margin: '0'}}>
                     <Bold>Инструкция.</Bold> В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. По результатам прохождения теста будет определена ваша роль в команде.
                 </Typography>}
-                <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                <div style={
+                    blockId === 0 ?
+                    { display: 'flex', justifyContent: 'center'}
+                    :
+                    { display: 'flex', justifyContent: 'space-between' }
+                    }>
                     <Typography 
                     gutterBottom 
                     variant={"h6"} 
