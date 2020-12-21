@@ -67,6 +67,10 @@ function TestPage( props: any ) {
         setBlockId(blockId - 1);
     });
 
+    useEffect(() => {
+        setInstructionModal(false);
+    }, [props.location])
+
     const currentQuestions = questions[blockId];
     const sumValueQuestions = questionsRate[blockId].reduce((acc: any, val: any) => acc + val, 0);
     const possibleMaximumValueQuestion = 10 - sumValueQuestions;
@@ -94,10 +98,7 @@ function TestPage( props: any ) {
                     gutterBottom 
                     className={classes.instructionsText} 
                     style={{fontSize: '14px', lineHeight: '20px', margin: '0'}}>
-                    <Bold>Инструкция.</Bold> В каждом из семи блоков данного теста распределите 10 баллов между
-                    возможными ответами согласно тому, как вы полагаете они лучше всего подходят вашему собственному
-                    поведению. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10
-                    баллов.
+                    <Bold>Инструкция.</Bold> В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. По результатам прохождения теста будет определена ваша роль в команде.
                 </Typography>}
                 <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                     <Typography 
@@ -124,15 +125,12 @@ function TestPage( props: any ) {
                     gutterBottom 
                     className={classes.instructionsText} 
                     style={{fontSize: '14px', lineHeight: '20px'}}>
-                        <Bold>Инструкция.</Bold> В каждом из семи блоков данного теста распределите 10 баллов между
-                        возможными ответами согласно тому, как вы полагаете они лучше всего подходят вашему собственному
-                        поведению. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10
-                        баллов.
+                        <Bold>Инструкция.</Bold> В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. По результатам прохождения теста будет определена ваша роль в команде.
                     </Typography>
                 </div>
 
                 <FixNameBlock>
-                    <Typography variant={"h6"} component={"h2"}>
+                    <Typography variant={"h6"} component={"h2"} style={{ textTransform: 'uppercase'}}>
                         <Bold>{currentQuestions.title}</Bold>
                     </Typography>
                 </FixNameBlock>
@@ -141,7 +139,7 @@ function TestPage( props: any ) {
                     <WrapperQuestion key={index}>
                         <WrapperLabel>
                             <Typography id={"slider-question-" + index} gutterBottom>
-                                {question}
+                                {index + 1}.  {question}
                             </Typography>
                         </WrapperLabel>
                         <WrapperWrapperSlider>
@@ -254,7 +252,7 @@ const FixNameBlock = styled.div`
     min-height: 2em;
     z-index: 10000;
     background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 2.5px solid #3c0068;
 `;
 
 const WrapperControlPanel = styled.div`
@@ -269,7 +267,7 @@ const WrapperControlPanel = styled.div`
     z-index: 10000;
     max-width: 935px;
     background-color: #fff;
-    border-top: 1px solid #e5e5e5;
+    border-top: 2.5px solid #3c0068;
 
     @media screen and (max-width: 400px) {
         display: flex;
