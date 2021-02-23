@@ -114,8 +114,10 @@ export default function ResultPage() {
     }
     // the smallest value
     let smallest;
+    let exsmallest;
     for(let value in topRoles) {
         if ( topRoles[value].category !== undefined && topRoles[value].rate !== undefined && value !== undefined) {
+            exsmallest = smallest;
             smallest = topRoles[value];
         }
     }
@@ -227,8 +229,18 @@ export default function ResultPage() {
                                 Наивысший балл по командной роли показывает, что Вы можете можете лучше всего исполнять
                                 роль <Bold>{mainValue.category}</Bold> в управленческой команде.
                             </Typography>
-                            <Typography gutterBottom>{roles[mainValue.category].haracteristic}</Typography>
-                            <Typography gutterBottom>{roles[mainValue.category].functionality}</Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
+                                {roles[mainValue.category].haracteristic}
+                                </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
+                                {roles[mainValue.category].functionality}
+                            </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
+                                {roles[mainValue.category].weakness}
+                            </Typography>
                         </Box>}
 
 
@@ -241,9 +253,41 @@ export default function ResultPage() {
                                 Поддерживающую роль, на которую Вы можете переключиться, если Ваша основная командная
                                 роль по каким-либо причинам не нужна группе - <Bold>{supportedValue.category}</Bold>
                             </Typography>
-                            <Typography gutterBottom>Характеристика. {roles[supportedValue.category].haracteristic}</Typography>
-                            <Typography gutterBottom>Функциональность. {roles[supportedValue.category].functionality}</Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
+                                {roles[supportedValue.category].haracteristic}
+                                </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
+                                {roles[supportedValue.category].functionality}
+                            </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
+                                {roles[supportedValue.category].weakness}
+                            </Typography>
                         </Box>}
+                        {exsmallest !== undefined &&
+                        <Box mb={"1em"}>
+                            <Typography gutterBottom variant={"h5"} component={"h3"}>
+                                Слабое место - {exsmallest.category} / {(exsmallest.rate / sumAllValue * 100).toFixed(0)}%
+                            </Typography>
+                            <Typography gutterBottom>
+                                Ваше слабое место - <Bold>{exsmallest.category}</Bold>
+                            </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
+                                {roles[exsmallest.category].haracteristic}
+                                </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
+                                {roles[exsmallest.category].functionality}
+                            </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
+                                {roles[exsmallest.category].weakness}
+                            </Typography>
+                        </Box>
+                        }
                         {
                         smallest !== undefined &&
                         <Box mb={"1em"}>
@@ -253,8 +297,18 @@ export default function ResultPage() {
                             <Typography gutterBottom>
                                 Ваше слабое место - <Bold>{smallest.category}</Bold>
                             </Typography>
-                            <Typography gutterBottom>Характеристика. {roles[smallest.category].haracteristic}</Typography>
-                            <Typography gutterBottom>Функциональность. {roles[smallest.category].functionality}</Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
+                                {roles[smallest.category].haracteristic}
+                                </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
+                                {roles[smallest.category].functionality}
+                            </Typography>
+                            <Typography gutterBottom>
+                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
+                                {roles[smallest.category].weakness}
+                            </Typography>
                         </Box>
                         }
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '40px' }}>
