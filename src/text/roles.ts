@@ -1,3 +1,13 @@
+// images
+import collectivist from '../assets/Roles/collectivist.jpg';
+import dovodchik from '../assets/Roles/dovodchik.jpg';
+import formirovatel from '../assets/Roles/formirovatel.jpg';
+import ispolnitel from '../assets/Roles/ispolnitel.jpg';
+import mislitel from '../assets/Roles/mislitel.jpg';
+import ozenchik from '../assets/Roles/ozenchik.jpg';
+import predsedatel from '../assets/Roles/predsedatel.jpg';
+import razvedchik from '../assets/Roles/razvedchik.jpg';
+
 const roles: any = {
 
     'Доводчик': {
@@ -5,7 +15,9 @@ const roles: any = {
 
         functionality: 'Ищет ошибки, недоработки. Концентрируется и ориентирует других на установленные сроки.',
 
-        weakness: 'Имеет тенденцию напрасно беспокоиться. Не любит делегировать полномочия.'
+        weakness: 'Имеет тенденцию напрасно беспокоиться. Не любит делегировать полномочия.',
+
+        image: dovodchik
 
     },
 
@@ -15,7 +27,9 @@ const roles: any = {
 
         functionality: 'Разъясняет цели и расставляет приоритеты. Мотивирует коллег, повышает в должности.',
 
-        weakness: 'Не очень интеллигентен, личность не высоко творческая.'
+        weakness: 'Не очень интеллигентен, личность не высоко творческая.',
+
+        image: predsedatel
 
     },
 
@@ -23,9 +37,11 @@ const roles: any = {
 
         haracteristic: 'Очень сильная личность. Общителен, динамичен.',
 
-        functionality: 'Способен работать в режиме высокого напряжения, преодоливать препятствия для достижения цели.',
+        functionality: 'Способен работать в режиме высокого напряжения, преодолeвать препятствия для достижения цели.',
 
-        weakness: 'Легко поддаеться на провокацию.'
+        weakness: 'Легко поддается на провокацию.',
+
+        image: formirovatel
 
     },
 
@@ -35,7 +51,9 @@ const roles: any = {
 
         functionality: 'Предлагает оригинальные идеи. Решает сложные вопросы.',
 
-        weakness: 'Слабо контактирует и плохо управляет обыкновенными членами команды.'
+        weakness: 'Слабо контактирует и плохо управляет обыкновенными членами команды.',
+
+        image: mislitel
     },
 
     'Разведчик': {
@@ -44,7 +62,9 @@ const roles: any = {
 
         functionality: 'Изучает новые возможности. Развивает контакты. Переговорщик.',
 
-        weakness: 'Теряет интерес по мере угасания первоначального энтузиазма'
+        weakness: 'Теряет интерес по мере угасания первоначального энтузиазма',
+
+        image: razvedchik
     },
     "Оценщик": {
 
@@ -52,7 +72,9 @@ const roles: any = {
 
         functionality: 'Рассматривает все варианты. Анализирует. Старается предвидеть результат.',
 
-        weakness: 'Недостает способности вдохновить остальной коллектив.'
+        weakness: 'Недостает способности вдохновить остальной коллектив.',
+
+        image: ozenchik
 
     },
     "Коллективист": {
@@ -61,7 +83,9 @@ const roles: any = {
 
         functionality: 'Слушает. Строит, улаживает разногласия. Работает с трудными людьми.',
 
-        weakness: 'Теряется в острых ситуациях'
+        weakness: 'Теряется в острых ситуациях',
+
+        image: collectivist
 
     },
     "Исполнитель": {
@@ -70,7 +94,9 @@ const roles: any = {
 
         functionality: 'Организует. Претворяет в жизнь идеи и планы.',
 
-        weakness: 'Негибок. Медленно реагирует на новые возможности.'
+        weakness: 'Негибок. Медленно реагирует на новые возможности.',
+
+        image: ispolnitel
 
     }
 };

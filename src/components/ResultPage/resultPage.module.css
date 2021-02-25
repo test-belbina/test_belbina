@@ -1,0 +1,52 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.main h1 {
+    font-weight: 700;
+    font-size: 96px;
+}
+.main h2 {
+    font-weight: 700;
+    font-size: 64px;
+    margin-top: 40px;
+}
+
+.topStripe {
+    position: absolute;
+    width: 1204px;
+    height: 872px;
+    left: 0px;
+    top: 0px;
+}
+
+.rightStripe {
+    position: absolute;
+    width: 1204px;
+    height: 872.01px;
+    top: 1000px;
+    right: -50px;
+}
+
+@media screen and (max-width: 1024px) {
+    .topStripe {
+        width: 83%;
+        height: auto;
+    }
+    .rightStripe {
+        width: 60%;
+        right: 0px;
+        height: auto;
+    }
+    .main h1 {
+        font-size: 7vw;
+    }
+    .main h2 {
+        font-size: 4vw;
+        margin-top: 30px;
+    }
+}

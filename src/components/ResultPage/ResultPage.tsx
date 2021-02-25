@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
+import RoleBlock from './RoleBlock/RoleBlock';
 import styled from "styled-components";
 import useCustomSelector from "src/hooks/useCustomSelector";
 import { questionState } from 'src/store/rootSelector';
@@ -19,6 +20,11 @@ import * as packageJson from "../../../package.json";
 
 import { roles, keys } from '../../text/roles';
 import { resetQuestions } from 'src/store/questions/actions';
+
+// images
+import topStripe from '../../assets/ResultPage/topStripe.svg';
+import rightStripe from '../../assets/ResultPage/rightStripe.svg';
+import styleClasses from './resultPage.module.css';
 
 export default function ResultPage() {
 
@@ -125,6 +131,67 @@ export default function ResultPage() {
 
         return (
             <>
+            {/* images bg */}
+            <img 
+                src={topStripe}
+                alt=""
+                className={styleClasses.topStripe}
+            />
+            <img 
+                src={rightStripe}
+                alt=""
+                className={styleClasses.rightStripe}
+            />
+
+            <div className={styleClasses.main}>
+                <h1>
+                    Результат теста
+                </h1>
+                <h2>
+                    Ваши сильные роли
+                </h2>
+                <div style={{
+                    width: '100%',
+                    maxWidth: '1200px',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: window.innerWidth > 900 ? 'space-between' : 'center',
+                    flexDirection: 'row',
+                    marginTop: '30px',
+                    flexWrap: 'wrap',
+                }}>
+                    <RoleBlock 
+                        src={roles[mainValue.category].image}
+                        roleClass={'first'}
+                        name={mainValue.category}
+                        haracteristic={roles[mainValue.category].haracteristic}
+                        weakness={roles[mainValue.category].weakness}
+                        functionality={roles[mainValue.category].functionality}
+                    />
+                    <RoleBlock 
+                        src={roles[supportedValue.category].image}
+                        roleClass={'second'}
+                        name={supportedValue.category}
+                        haracteristic={roles[supportedValue.category].haracteristic}
+                        weakness={roles[supportedValue.category].weakness}
+                        functionality={roles[supportedValue.category].functionality}
+                    />
+                </div>
+                <div style={{
+                    width: '100%',
+                    maxWidth: '1200px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    flexDirection: 'row'
+                }}>
+                    <RoleBlock 
+                        roleClass={'third'}
+                    />
+                </div>
+            </div>
+            
+
             <Box style={{ padding: '1em', paddingBottom: '4em'}}>
                 <Typography gutterBottom variant={"h4"} component={"h2"} style={{textAlign: 'center'}}>
                     Результат теста

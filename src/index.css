@@ -1,17 +1,11 @@
-body {
-  margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+@font-face {
+    font-family: "Museo";
+    src: url('./font/museo.woff2') format("woff2")
 }
 
-input, textarea, select, button {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 1em;
+* {
+    font-family: "Museo" !important;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body, html {
+    overflow-x: hidden;
 }
