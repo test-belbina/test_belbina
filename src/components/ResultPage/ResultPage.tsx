@@ -119,8 +119,8 @@ export default function ResultPage() {
         }
     }
     // the smallest value
-    let smallest;
-    let exsmallest;
+    let smallest : any;
+    let exsmallest : any;
     for(let value in topRoles) {
         if ( topRoles[value].category !== undefined && topRoles[value].rate !== undefined && value !== undefined) {
             exsmallest = smallest;
@@ -157,7 +157,6 @@ export default function ResultPage() {
                     alignItems: 'flex-start',
                     justifyContent: window.innerWidth > 900 ? 'space-between' : 'center',
                     flexDirection: 'row',
-                    marginTop: '30px',
                     flexWrap: 'wrap',
                 }}>
                     <RoleBlock 
@@ -177,6 +176,9 @@ export default function ResultPage() {
                         functionality={roles[supportedValue.category].functionality}
                     />
                 </div>
+                <h2>
+                    Ваша слабая роль
+                </h2>
                 <div style={{
                     width: '100%',
                     maxWidth: '1200px',
@@ -186,17 +188,30 @@ export default function ResultPage() {
                     flexDirection: 'row'
                 }}>
                     <RoleBlock 
+                        src={roles[smallest.category].image}
                         roleClass={'third'}
+                        name={smallest.category}
+                        haracteristic={roles[smallest.category].haracteristic}
+                        weakness={roles[smallest.category].weakness}
+                        functionality={roles[smallest.category].functionality}
                     />
                 </div>
+
+                <h4>
+                    Таблица с процентным соотношением прочих ролей
+                </h4>
             </div>
             
 
-            <Box style={{ padding: '1em', paddingBottom: '4em'}}>
-                <Typography gutterBottom variant={"h4"} component={"h2"} style={{textAlign: 'center'}}>
-                    Результат теста
-                </Typography>
-
+            <div 
+            style={{ 
+                padding: '1em', 
+                paddingBottom: '4em',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+            }}
+            >
                 <TableContainer component={Paper} className={classes.tableContainer}>
                     <Table size="small">
                         <TableBody>
@@ -251,7 +266,6 @@ export default function ResultPage() {
                         </TableBody>
                     </Table>
                 </TableContainer>
-                
                 <div style={{ 
                     margin: '20px 0',
                     padding: '10px 0',
@@ -281,103 +295,6 @@ export default function ResultPage() {
                             Поделиться
                         </Button>
                 </div>
-
-                <Box mb={"1em"}>
-                    <Typography gutterBottom variant={"h4"} component={"h3"} style={{textAlign: 'center'}}>
-                        Описание ролей
-                    </Typography>
-
-                        {mainValue !== undefined &&
-                        <Box mb={"1em"}>
-                            <Typography gutterBottom variant={"h5"} component={"h3"}>
-                                Лучшая роль - {mainValue.category} / {(mainValue.rate / sumAllValue * 100).toFixed(0)}%
-                            </Typography>
-                            <Typography gutterBottom>
-                                Наивысший балл по командной роли показывает, что Вы можете можете лучше всего исполнять
-                                роль <Bold>{mainValue.category}</Bold> в управленческой команде.
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
-                                {roles[mainValue.category].haracteristic}
-                                </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
-                                {roles[mainValue.category].functionality}
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
-                                {roles[mainValue.category].weakness}
-                            </Typography>
-                        </Box>}
-
-
-                        {supportedValue !== undefined && 
-                        <Box mb={"1em"}>
-                            <Typography gutterBottom variant={"h5"} component={"h3"}>
-                                Поддерживающая роль - {supportedValue.category} / {(supportedValue.rate / sumAllValue * 100).toFixed(0)}%
-                            </Typography>
-                            <Typography>
-                                Поддерживающую роль, на которую Вы можете переключиться, если Ваша основная командная
-                                роль по каким-либо причинам не нужна группе - <Bold>{supportedValue.category}</Bold>
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
-                                {roles[supportedValue.category].haracteristic}
-                                </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
-                                {roles[supportedValue.category].functionality}
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
-                                {roles[supportedValue.category].weakness}
-                            </Typography>
-                        </Box>}
-                        {exsmallest !== undefined &&
-                        <Box mb={"1em"}>
-                            <Typography gutterBottom variant={"h5"} component={"h3"}>
-                                Слабое место - {exsmallest.category} / {(exsmallest.rate / sumAllValue * 100).toFixed(0)}%
-                            </Typography>
-                            <Typography gutterBottom>
-                                Ваше слабое место - <Bold>{exsmallest.category}</Bold>
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
-                                {roles[exsmallest.category].haracteristic}
-                                </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
-                                {roles[exsmallest.category].functionality}
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
-                                {roles[exsmallest.category].weakness}
-                            </Typography>
-                        </Box>
-                        }
-                        {
-                        smallest !== undefined &&
-                        <Box mb={"1em"}>
-                            <Typography gutterBottom variant={"h5"} component={"h3"}>
-                                Слабое место - {smallest.category} / {(smallest.rate / sumAllValue * 100).toFixed(0)}%
-                            </Typography>
-                            <Typography gutterBottom>
-                                Ваше слабое место - <Bold>{smallest.category}</Bold>
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Характеристика личности: </p>
-                                {roles[smallest.category].haracteristic}
-                                </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Вклад в работу команды: </p>
-                                {roles[smallest.category].functionality}
-                            </Typography>
-                            <Typography gutterBottom>
-                                <p style={{fontWeight:'bold'}}>Допустимые слабости: </p>
-                                {roles[smallest.category].weakness}
-                            </Typography>
-                        </Box>
-                        }
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '40px' }}>
                             <Button
                             variant="contained"
@@ -391,11 +308,13 @@ export default function ResultPage() {
                                 Пройти тест заново
                             </Button>
                         </div>
-
-                </Box>
-            </Box>
-            <WrapperControlPanel 
-            style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '15px', boxSizing: 'border-box'}}>
+            </div>
+            {/* <WrapperControlPanel 
+                style={{ 
+                    textAlign: 'center', display: 'flex', 
+                    flexDirection: 'column', alignItems: 'center', 
+                    padding: '15px', boxSizing: 'border-box'
+            }}>
                 <Button
                     variant="contained"
                     color="primary"
@@ -404,7 +323,7 @@ export default function ResultPage() {
                 >
                             Перейти в Инстаграм Яна
                 </Button>
-        </WrapperControlPanel>
+            </WrapperControlPanel> */}
         </>
         );
 }
