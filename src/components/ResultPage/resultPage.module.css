@@ -4,22 +4,24 @@
     flex-direction: column;
     align-items: center;
     padding-top: 80px;
+    overflow-y: hidden;
 }
 
 .main h1 {
     font-weight: 700;
-    font-size: 96px;
+    font-size: 70px;
 }
 .main h2 {
     font-weight: 700;
-    font-size: 64px;
+    font-size: 54px;
     margin-top: 40px;
 }
 .main h4 {
     font-weight: 600;
-    font-size: 48px;
+    font-size: 32px;
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -58,5 +60,104 @@
     }
     .main h4 {
         font-size: 5vw;
+    }
+}
+
+.table {
+    width: 80%;
+    box-sizing: border-box;
+    min-width: 350px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0px calc(10px + 1vw);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.firstLi {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.bodyLi {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid #000;
+}
+.firstColumn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    border-right: 1px solid #000;
+    padding: 20px 0;
+    font-size: 24px;
+}
+.secondColumn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    border-right: 1px solid #000;
+    padding: 20px 0;
+    font-size: 24px;
+}
+.thirdColumn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    padding: 20px 0;
+    font-size: 24px;
+}
+.bottomPar {
+    font-size: 20px;
+    white-space: pre-line;
+    text-align: center;
+    color: #000;
+    font-weight: 400;
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 1024px) {
+    .table {
+        width: 90%;
+    }
+    .firstColumn, .secondColumn, .thirdColumn {
+        font-size: 12px;
+        padding: 13px 0;
+    }
+    .bottomPar {
+        font-size: 14px;
+        margin-top: 40px;
+    }
+}
+.table ul {
+    width: 100%;
+}
+.table ul li {
+    width: 100%;
+}
+.table_first {
+    width: 100%;
+}
+
+.belbinLabel {
+    margin-top: 150px;
+    width: 100%;
+    margin-bottom: 50px;
+    max-width: 1900px;
+}
+@media screen and (max-width: 1024px) {
+    .belbinLabel {
+        margin-top: 100px;
+        margin-bottom: 30px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .belbinLabel {
+        margin-top: 70px;
+        margin-bottom: 20px;
     }
 }

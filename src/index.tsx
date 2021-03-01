@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import { createHashHistory } from "history";
-import { routerMiddleware, ConnectedRouter } from "connected-react-router";
 import createSagaMiddleware from "redux-saga";
 import rootReducer from "src/store/rootReducer";
 import rootSaga from "src/store/rootSaga";
@@ -18,16 +18,16 @@ const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     rootReducer(history),
-    composeEnhancers(applyMiddleware(sagaMiddleware, routerMiddleware(history)))
+    composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 sagaMiddleware.run(rootSaga(services));
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <ConnectedRouter history={history}>
+            <BrowserRouter>
                 <App />
-            </ConnectedRouter>
+            </BrowserRouter>
         </Provider>
     </React.StrictMode>,
     document.getElementById("root")

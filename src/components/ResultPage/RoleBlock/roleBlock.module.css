@@ -11,13 +11,13 @@
 
 .bold {
     font-weight: 600 !important;
-    font-size: 36px !important;
+    font-size: 24px !important;
     color: #000 !important;
     margin-top: 40px !important;
 }
 .text {
     font-weight: 400 !important;
-    font-size: 32px !important;
+    font-size: 24px !important;
     line-height: 43.2px;
     color: #000 !important;
 }
@@ -28,7 +28,7 @@
 }
 .main p {
     color: rgba(0, 0, 0, 0.38);
-    font-size: 36px;
+    font-size: 20px;
     font-weight: normal;
     margin-top: 10px;
     margin-left: 30px;
@@ -36,7 +36,7 @@
 .main h3 {
     color: #6850FF;
     font-weight: 600;
-    font-size: 64px;
+    font-size: 50px;
     margin-left: 30px;
 }
 

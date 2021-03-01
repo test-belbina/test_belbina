@@ -5,6 +5,7 @@
 
 * {
     font-family: "Museo" !important;
+    box-sizing: border-box;
 }
 body, html {
     overflow-x: hidden;

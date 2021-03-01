@@ -1,0 +1,41 @@
+.PageName {
+    font-size: 26px !important;
+    margin: 0;
+}
+.BoldLabel {
+    text-transform: uppercase;
+    font-size: 24px !important;
+}
+.Question {
+    margin: 0;
+    font-size: 20px !important;
+}
+.testBelbLabel {
+    margin-bottom: 5px !important;
+    font-size: 36px !important;
+    font-weight: 600 !important;
+}
+.instructionsText {
+    font-size: 18px !important; 
+    line-height: 26px !important;
+    margin: 0 !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .PageName {
+        font-size: calc(16px + 0.2vw) !important;
+    }
+    .BoldLabel {
+        font-size: calc(18px + 0.1vw) !important;
+    }
+    .Question {
+        font-size: 16px !important;
+    }
+    .testBelbLabel {
+        font-size: 20px !important;
+    }
+    .instructionsText {
+        font-size: 14px !important;
+        line-height: 20px !important;
+    }
+}

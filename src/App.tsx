@@ -4,7 +4,7 @@ import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import TestPage from "src/components/TestPage/TestPage";
 import ResultPage from "src/components/ResultPage/ResultPage";
 
-function App() {
+function App(props: any) {
     const { pathname } = useLocation();
 
     useEffect(() => {
@@ -22,27 +22,15 @@ function App() {
                     </BorderWrapper>
                 }/>
                 <Route exact path="/test_result" render={(props: any) => 
-                    <Wrapper>
-                        <ResultPage {...props} />
-                    </Wrapper>
+                    <ResultPage {...props} />
                 }/>
             </Switch>
     );
 }
 
-const Wrapper = styled.div`
-    margin-bottom: 3em;
-    @media (max-width: 768px) {
-        margin-bottom: 7em;
-    }
-`;
-
 const BorderWrapper = styled.div`
-    max-width: 935px;
-    margin: 0 auto 3em auto;
-    @media (max-width: 768px) {
-        margin-bottom: 7em;
-    } 
+    max-width: 1400px;
+    margin: 0 auto;
 `;
 
 export default App;

@@ -1,20 +1,12 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
 import RoleBlock from './RoleBlock/RoleBlock';
+import Form from '../Form/Form';
+
 import styled from "styled-components";
 import useCustomSelector from "src/hooks/useCustomSelector";
 import { questionState } from 'src/store/rootSelector';
 import useCustomDispatch from 'src/hooks/useCustomDispatch';
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import Box from "@material-ui/core/Box";
-import InstagramIcon from '@material-ui/icons/Instagram';
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import * as packageJson from "../../../package.json";
 
@@ -24,33 +16,13 @@ import { resetQuestions } from 'src/store/questions/actions';
 // images
 import topStripe from '../../assets/ResultPage/topStripe.svg';
 import rightStripe from '../../assets/ResultPage/rightStripe.svg';
+import belbinLabel from '../../assets/ResultPage/belbinLabel.svg';
 import styleClasses from './resultPage.module.css';
 
 export default function ResultPage() {
 
-
     const questionsRate = useCustomSelector(questionState);
     const dispatch = useCustomDispatch();
-
-    const useStyles = makeStyles({
-        tableContainer: {
-            maxWidth: 450,
-            marginBottom: "1em",
-        },
-        instagramIcon: {
-            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-            borderRadius: 3,
-            border: 0,
-            color: 'white',
-            height: 48,
-            padding: '0 30px',
-            boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-            fontWeight: 700,
-            marginTop: '10px'
-          },
-    });
-
-    const classes = useStyles();
 
     // формируем сколько очков набрала каждая категория
     let updatedRoles: any = {
@@ -147,6 +119,82 @@ export default function ResultPage() {
                 <h1>
                     Результат теста
                 </h1>
+                <h4>
+                    Таблица с процентным соотношением ролей
+                </h4>
+                <div className={styleClasses.table}> 
+                    <ul>
+                        <li className={styleClasses.firstLi}>
+                            <div className={styleClasses.firstColumn}>
+                                <span style={{
+                                    fontWeight: 600
+                                }}>
+                                    Роль
+                                </span>
+                            </div>
+                            <div className={styleClasses.secondColumn}>
+                                <span style={{
+                                    fontWeight: 600
+                                }}>
+                                    Проценты
+                                </span>
+                            </div>
+                            <div className={styleClasses.thirdColumn}>
+                                <span style={{
+                                    fontWeight: 600
+                                }}>
+                                    Баллы
+                                </span>
+                            </div>
+                        </li>
+                        {topRoles.map((role, index) => (
+                                <li key={"role" + index} className={styleClasses.bodyLi}>
+                                    <div className={styleClasses.firstColumn}>
+                                        {role.category === mainValue.category &&
+                                        (<Gradient2>
+                                            <p>{role.category}</p>
+                                        </Gradient2>)
+                                        }
+                                        {role.category === supportedValue.category &&
+                                        (<Gradient2>
+                                            <p>{role.category}</p>
+                                        </Gradient2>)
+                                        }
+                                        {role.category !== supportedValue.category && role.category !== mainValue.category && 
+                                        <p>{role.category}</p>
+                                        }
+                                    </div>
+                                    <div className={styleClasses.secondColumn}>
+                                        {role.category === mainValue.category &&
+                                        <Gradient2>
+                                            {Math.round((role.rate * 100) / sumAllValue)}
+                                        </Gradient2>
+                                        }
+                                        {role.category === supportedValue.category &&
+                                        <Gradient2>
+                                            {Math.round((role.rate * 100) / sumAllValue)}
+                                        </Gradient2>
+                                        }
+                                        {role.category !== supportedValue.category && role.category !== mainValue.category &&
+                                        Math.round((role.rate * 100) / sumAllValue)
+                                        }
+                                    </div>
+                                    <div className={styleClasses.thirdColumn}>
+                                        {role.category === mainValue.category &&
+                                        <Gradient2>
+                                            {role.rate}
+                                        </Gradient2>}
+                                        {role.category === supportedValue.category &&
+                                        <Gradient2>
+                                            {role.rate}
+                                        </Gradient2>}
+                                        {role.category !== supportedValue.category && role.category !== mainValue.category &&
+                                        role.rate}
+                                    </div>
+                                </li>
+                            ))}
+                    </ul>
+                </div>
                 <h2>
                     Ваши сильные роли
                 </h2>
@@ -196,134 +244,29 @@ export default function ResultPage() {
                         functionality={roles[smallest.category].functionality}
                     />
                 </div>
-
-                <h4>
-                    Таблица с процентным соотношением прочих ролей
-                </h4>
-            </div>
-            
-
-            <div 
-            style={{ 
-                padding: '1em', 
-                paddingBottom: '4em',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center'
-            }}
-            >
-                <TableContainer component={Paper} className={classes.tableContainer}>
-                    <Table size="small">
-                        <TableBody>
-                            {topRoles.map((role, index) => (
-                                <TableRow key={"role" + index}>
-                                    <TableCell>
-                                        {role.category === mainValue.category &&
-                                        (<Gradient2>
-                                            {role.category}
-                                        </Gradient2>)
-                                        }
-                                        {role.category === supportedValue.category &&
-                                        (<Gradient2>
-                                            {role.category}
-                                        </Gradient2>)
-                                        }
-                                        {role.category !== supportedValue.category && role.category !== mainValue.category && 
-                                        role.category
-                                        }
-                                        </TableCell>
-                                    <TableCell 
-                                    align="right">
-                                        {role.category === mainValue.category &&
-                                        <Gradient2>
-                                            {Math.round((role.rate * 100) / sumAllValue)}%
-                                        </Gradient2>
-                                        }
-                                        {role.category === supportedValue.category &&
-                                        <Gradient2>
-                                            {Math.round((role.rate * 100) / sumAllValue)}%
-                                        </Gradient2>
-                                        }
-                                        {role.category !== supportedValue.category && role.category !== mainValue.category &&
-                                        Math.round((role.rate * 100) / sumAllValue) + '%'
-                                        }
-                                    </TableCell>
-                                    <TableCell 
-                                    align="right">
-                                        {role.category === mainValue.category &&
-                                        <Gradient2>
-                                            {role.rate} (б)
-                                        </Gradient2>}
-                                        {role.category === supportedValue.category &&
-                                        <Gradient2>
-                                            {role.rate} (б)
-                                        </Gradient2>}
-                                        {role.category !== supportedValue.category && role.category !== mainValue.category &&
-                                        role.rate + '(б)'}
-                                        </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <div style={{ 
-                    margin: '20px 0',
-                    padding: '10px 0',
+                <p className={styleClasses.bottomPar}>
+                    {`Мы подготовили для тебя развернутое описание каждой роли!\n
+                    Чтобы получить наш чек-лист, тебе нужно\n
+                    оставить пару строк о себе`}
+                </p>
+                <div 
+                style={{
+                    width: '100%',
+                    marginTop: '40px',
                     display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center'
-                    }}>
-                    <p style={{
-                        fontStyle: 'italic',
-                        fontSize: '15px',
-                        fontWeight: 'normal',
-                        lineHeight: '1.3',
-                        maxWidth: '500px',
-                        textAlign: 'center'
-                    }}>
-                        Вот результаты теста, дальше как с этим взаимодействовать, получи инструкцию в личных сообщениях от Яна. Делай скриншот, выкладывай у себя в сторис в Инстаграм, отмечай Яна <Bold>@yanpalm</Bold> и получи короткую консультацию.
-                    </p>
-                        <Button
-                        onClick={() => window.open('https://www.instagram.com/', '_blank')}
-                        variant="contained"
-                        color="secondary"
-                        size="medium"
-                        style={{fontSize: '13px'}}
-                        className={classes.instagramIcon}
-                        startIcon={<InstagramIcon />}
-                        >
-                            Поделиться
-                        </Button>
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Form />
                 </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '40px' }}>
-                            <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={() => {
-                                dispatch(resetQuestions());
-                                window.location.href = packageJson.homepage;
-                                }
-                            }
-                            >
-                                Пройти тест заново
-                            </Button>
-                        </div>
+                <div className={styleClasses.belbinLabel}>
+                    <img 
+                        style={{width:'100%', maxWidth: '1900px'}}
+                        src={belbinLabel}
+                        alt=""
+                    />
+                </div>
             </div>
-            {/* <WrapperControlPanel 
-                style={{ 
-                    textAlign: 'center', display: 'flex', 
-                    flexDirection: 'column', alignItems: 'center', 
-                    padding: '15px', boxSizing: 'border-box'
-            }}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    style={{ width: '300px' }}
-                    onClick={() => window.open('https://www.instagram.com/yanpalm/', '_blank')}
-                >
-                            Перейти в Инстаграм Яна
-                </Button>
-            </WrapperControlPanel> */}
         </>
         );
 }
@@ -333,31 +276,16 @@ const Bold = styled.strong`
     font-weight: bold;
 `;
 
-const Gradient1 = styled(Bold)`
-    background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-`;
+// const Gradient1 = styled(Bold)`
+//     background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     text-transform: uppercase;
+// `;
 
 const Gradient2 = styled(Bold)`
     background: linear-gradient(to right, #ad1457, #4a148c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-`;
-
-const WrapperControlPanel = styled.div`
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    justify-content: center;
-    padding: 1em 0;
-    min-height: 2em;
-    width: 100%;
-    z-index: 10000;
-    max-width: 935px;
-    background-color: #fff;
-    border-top: 2.5px solid #3c0068;
-    box-shadow: 0 -20px 8px -2px rgba(0, 0, 0, .1);
 `;

@@ -14,6 +14,8 @@ import { questions, questionLength } from '../../text/questions';
 import { questionState } from 'src/store/rootSelector';
 import { setValue } from 'src/store/questions/actions';
 
+import sclasses from './testPage.module.css';
+
 const useStyles = {
     instructionsText: {
         fontSize: "1em",
@@ -84,22 +86,21 @@ function TestPage( props: any ) {
             <div style={{ padding: '0.5em 1em 2.1em 1em'}}>
                 {blockId === 0 && 
                 <Typography 
-                gutterBottom 
-                variant={"h5"} 
-                component={"h1"} 
-                align={'center'} style={{
-                    marginBottom: '5px'
-                }}>
+                    gutterBottom 
+                    align={'center'} 
+                    className={sclasses.testBelbLabel}
+                >
                     Тест Белбина на вашу роль в команде
                 </Typography>}
 
                 {blockId === 0 &&
-                    <Typography 
+                <Typography 
                     gutterBottom 
-                    className={classes.instructionsText} 
-                    style={{fontSize: '14px', lineHeight: '20px', margin: '0'}}>
+                    className={sclasses.instructionsText} 
+                >
                     <Bold>Инструкция.</Bold> В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. По результатам прохождения теста будет определена ваша роль в команде.
-                </Typography>}
+                </Typography>
+                }
                 <div style={
                     blockId === 0 ?
                     { display: 'flex', justifyContent: 'center'}
@@ -107,10 +108,11 @@ function TestPage( props: any ) {
                     { display: 'flex', justifyContent: 'space-between' }
                     }>
                     <Typography 
-                    gutterBottom 
-                    variant={"h6"} 
-                    component={"h2"} 
-                    style={{ margin: '0' }}>
+                        gutterBottom 
+                        variant={"h6"} 
+                        component={"h2"} 
+                        className={sclasses.PageName}
+                    >
                         Часть { blockId + 1 } из { questionLength }
                     </Typography>
                     {blockId !== 0 && 
@@ -127,18 +129,19 @@ function TestPage( props: any ) {
                     instrcutionModal ? classes.instruction + ' ' + classes.instructionOpened
                                     : classes.instruction + ' ' + classes.instructionClosed }> 
                     <Typography 
-                    gutterBottom 
-                    className={classes.instructionsText} 
-                    style={{fontSize: '14px', lineHeight: '20px'}}>
+                        gutterBottom 
+                        className={classes.instructionsText} 
+                        style={{fontSize: '14px', lineHeight: '20px'}}
+                    >
                         <Bold>Инструкция.</Bold> В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. По результатам прохождения теста будет определена ваша роль в команде.
                     </Typography>
                 </div>
 
                 <FixNameBlock>
                     <Typography 
-                    variant={"h6"} 
-                    component={"h2"} 
-                    style={{ textTransform: 'uppercase'}}
+                        variant={"h6"} 
+                        component={"h2"} 
+                        className={sclasses.BoldLabel}
                     >
                         <Bold>{currentQuestions.title}</Bold>
                     </Typography>
@@ -148,9 +151,13 @@ function TestPage( props: any ) {
                     <WrapperQuestion key={index}>
                         <WrapperLabel>
                             <Typography 
-                            id={"slider-question-" + index} 
-                            gutterBottom 
-                            style={ index === 0 ? { margin: '0', marginTop: '15px'} : { margin: '0'}} >
+                                id={"slider-question-" + index} 
+                                gutterBottom 
+                                style={ index === 0 ? { 
+                                    marginTop: window.innerWidth > 1024 ? '25px' : '15px'
+                                } : {}} 
+                                className={sclasses.Question}
+                            >
                                 {index + 1}.  {question}
                             </Typography>
                         </WrapperLabel>
@@ -277,7 +284,7 @@ const WrapperControlPanel = styled.div`
     padding: 1em 0;
     width: 100%;
     z-index: 10000;
-    max-width: 935px;
+    max-width: 1400px;
     background-color: #fff;
     border-top: 1px solid #eee;
 
