@@ -2,10 +2,36 @@
     width: 100%;
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: row;
     min-width: 300px;
-    max-width: 450px;
-    margin-top: 40px;
+    margin-top: 80px;
+
+}
+
+.first {
+    width: 30%;
+}
+
+.parag {
+    width: auto;
+    margin-left: 100px;
+}
+
+@media screen and (max-width: 1024px) {
+    .main {
+        flex-direction: column;
+        margin-top: 40px;
+        text-align: center;
+    }
+    .first {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .parag {
+        margin-left: 0;
+    }
 }
 
 
@@ -23,7 +49,7 @@
 }
 
 .main img {
-    width: 70%;
+    width: 100%;
     align-self: center;
 }
 .main p {

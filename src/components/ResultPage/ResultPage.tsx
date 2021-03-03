@@ -6,12 +6,8 @@ import Form from '../Form/Form';
 import styled from "styled-components";
 import useCustomSelector from "src/hooks/useCustomSelector";
 import { questionState } from 'src/store/rootSelector';
-import useCustomDispatch from 'src/hooks/useCustomDispatch';
-import Button from "@material-ui/core/Button";
-import * as packageJson from "../../../package.json";
 
 import { roles, keys } from '../../text/roles';
-import { resetQuestions } from 'src/store/questions/actions';
 
 // images
 import topStripe from '../../assets/ResultPage/topStripe.svg';
@@ -22,7 +18,6 @@ import styleClasses from './resultPage.module.css';
 export default function ResultPage() {
 
     const questionsRate = useCustomSelector(questionState);
-    const dispatch = useCustomDispatch();
 
     // формируем сколько очков набрала каждая категория
     let updatedRoles: any = {
@@ -195,12 +190,14 @@ export default function ResultPage() {
                             ))}
                     </ul>
                 </div>
-                <h2>
+                <h2 style={{
+                    marginTop: '80px'
+                }}>
                     Ваши сильные роли
                 </h2>
                 <div style={{
-                    width: '100%',
-                    maxWidth: '1200px',
+                    width: '90%',
+                    maxWidth: '1800px',
                     display: 'flex',
                     alignItems: 'flex-start',
                     justifyContent: window.innerWidth > 900 ? 'space-between' : 'center',
@@ -224,14 +221,16 @@ export default function ResultPage() {
                         functionality={roles[supportedValue.category].functionality}
                     />
                 </div>
-                <h2>
+                <h2 style={{
+                    marginTop: '80px'
+                }}>
                     Ваша слабая роль
                 </h2>
                 <div style={{
-                    width: '100%',
-                    maxWidth: '1200px',
+                    width: '90%',
+                    maxWidth: '1800px',
                     display: 'flex',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
                     justifyContent: 'flex-start',
                     flexDirection: 'row'
                 }}>

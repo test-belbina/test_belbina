@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/test_belbina/static/css/main.3c8736b1.chunk.css",
-    "main.js": "/test_belbina/static/js/main.73274684.chunk.js",
-    "main.js.map": "/test_belbina/static/js/main.73274684.chunk.js.map",
+    "main.css": "/test_belbina/static/css/main.73d827fd.chunk.css",
+    "main.js": "/test_belbina/static/js/main.e0652f53.chunk.js",
+    "main.js.map": "/test_belbina/static/js/main.e0652f53.chunk.js.map",
     "runtime-main.js": "/test_belbina/static/js/runtime-main.17e4da71.js",
     "runtime-main.js.map": "/test_belbina/static/js/runtime-main.17e4da71.js.map",
     "static/css/2.0978f8b3.chunk.css": "/test_belbina/static/css/2.0978f8b3.chunk.css",
-    "static/js/2.8bf2d0d6.chunk.js": "/test_belbina/static/js/2.8bf2d0d6.chunk.js",
-    "static/js/2.8bf2d0d6.chunk.js.map": "/test_belbina/static/js/2.8bf2d0d6.chunk.js.map",
+    "static/js/2.35b72ba4.chunk.js": "/test_belbina/static/js/2.35b72ba4.chunk.js",
+    "static/js/2.35b72ba4.chunk.js.map": "/test_belbina/static/js/2.35b72ba4.chunk.js.map",
     "index.html": "/test_belbina/index.html",
     "static/css/2.0978f8b3.chunk.css.map": "/test_belbina/static/css/2.0978f8b3.chunk.css.map",
-    "static/css/main.3c8736b1.chunk.css.map": "/test_belbina/static/css/main.3c8736b1.chunk.css.map",
-    "static/js/2.8bf2d0d6.chunk.js.LICENSE.txt": "/test_belbina/static/js/2.8bf2d0d6.chunk.js.LICENSE.txt",
+    "static/css/main.73d827fd.chunk.css.map": "/test_belbina/static/css/main.73d827fd.chunk.css.map",
+    "static/js/2.35b72ba4.chunk.js.LICENSE.txt": "/test_belbina/static/js/2.35b72ba4.chunk.js.LICENSE.txt",
+    "static/media/belbinLabel.6b926b61.svg": "/test_belbina/static/media/belbinLabel.6b926b61.svg",
     "static/media/collectivist.bc88e536.jpg": "/test_belbina/static/media/collectivist.bc88e536.jpg",
     "static/media/dovodchik.bcff3b9d.jpg": "/test_belbina/static/media/dovodchik.bcff3b9d.jpg",
     "static/media/formirovatel.d4516b6d.jpg": "/test_belbina/static/media/formirovatel.d4516b6d.jpg",
     "static/media/ispolnitel.cd00c45e.jpg": "/test_belbina/static/media/ispolnitel.cd00c45e.jpg",
+    "static/media/mark.b8ce22f0.svg": "/test_belbina/static/media/mark.b8ce22f0.svg",
     "static/media/mislitel.8be4c246.jpg": "/test_belbina/static/media/mislitel.8be4c246.jpg",
     "static/media/index.css": "/test_belbina/static/media/museo.08b38a7f.woff2",
     "static/media/ozenchik.a35bb5e8.jpg": "/test_belbina/static/media/ozenchik.a35bb5e8.jpg",
@@ -27,8 +29,8 @@
   "entrypoints": [
     "static/js/runtime-main.17e4da71.js",
     "static/css/2.0978f8b3.chunk.css",
-    "static/js/2.8bf2d0d6.chunk.js",
-    "static/css/main.3c8736b1.chunk.css",
-    "static/js/main.73274684.chunk.js"
+    "static/js/2.35b72ba4.chunk.js",
+    "static/css/main.73d827fd.chunk.css",
+    "static/js/main.e0652f53.chunk.js"
   ]
 }

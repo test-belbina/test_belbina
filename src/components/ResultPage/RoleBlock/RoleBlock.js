@@ -15,12 +15,14 @@ const RoleBlock = (props) => {
 
     return (
         <div className={classes.main}>
-            <img
-                src={props.src}
-                alt=""
-            />
-            <p>{pLabel}</p>
-            <h3>{props.name}</h3>
+            <div className={classes.first}>
+                <img
+                    src={props.src}
+                    alt=""
+                />
+                <p>{pLabel}</p>
+                <h3>{props.name}</h3>
+            </div>
             <div className={classes.parag}>
                 <p className={classes.bold}>Сильные стороны:</p>
                 <p className={classes.text}>
