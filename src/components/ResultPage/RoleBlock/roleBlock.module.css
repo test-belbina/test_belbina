@@ -57,21 +57,22 @@
     font-size: 20px;
     font-weight: normal;
     margin-top: 10px;
-    margin-left: 30px;
 }
 .main h3 {
     color: #6850FF;
     font-weight: 600;
     font-size: 50px;
-    margin-left: 30px;
 }
 
 @media screen and (max-width: 1024px) {
     .main p {
         font-size: 5vw;
+        margin-left: 0;
+        text-align: center;
     }
     .main h3 {
         font-size: 8vw;
+        text-align: center;
     }
     .bold, .text {
         font-size: 5vw !important;

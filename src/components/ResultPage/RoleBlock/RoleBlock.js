@@ -24,6 +24,10 @@ const RoleBlock = (props) => {
                 <h3>{props.name}</h3>
             </div>
             <div className={classes.parag}>
+                <p className={classes.bold}>Краткое описание:</p>
+                <p className={classes.text}>
+                    {props.description}
+                </p>
                 <p className={classes.bold}>Сильные стороны:</p>
                 <p className={classes.text}>
                     {props.haracteristic}

@@ -162,7 +162,7 @@ function TestPage( props: any ) {
                             </Typography>
                         </WrapperLabel>
                         <WrapperWrapperSlider>
-                            <WrapperSlider paddingRight={(questionsRate[blockId][index] + possibleMaximumValueQuestion) * 10}>
+                            <WrapperSlider paddingRight={(questionsRate[blockId][index] + possibleMaximumValueQuestion) * 10} >
                                 <Slider
                                     onChange={(event, value) =>
                                         handleChangeQuestion(value, index)
@@ -247,6 +247,7 @@ const WrapperQuestion = styled.div`
 
 const WrapperWrapperSlider = styled.div`
     padding: 0 2em;
+    margin: 32px 0 72px;
 `;
 
 const WrapperSlider = styled.div`

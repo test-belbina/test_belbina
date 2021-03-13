@@ -87,10 +87,10 @@ export default function ResultPage() {
     }
     // the smallest value
     let smallest : any;
-    let exsmallest : any;
+    // let exsmallest : any;
     for(let value in topRoles) {
         if ( topRoles[value].category !== undefined && topRoles[value].rate !== undefined && value !== undefined) {
-            exsmallest = smallest;
+            // exsmallest = smallest;
             smallest = topRoles[value];
         }
     }
@@ -211,6 +211,7 @@ export default function ResultPage() {
                         haracteristic={roles[mainValue.category].haracteristic}
                         weakness={roles[mainValue.category].weakness}
                         functionality={roles[mainValue.category].functionality}
+                        description={roles[mainValue.category].description}
                     />
                     <RoleBlock 
                         src={roles[supportedValue.category].image}
@@ -219,6 +220,7 @@ export default function ResultPage() {
                         haracteristic={roles[supportedValue.category].haracteristic}
                         weakness={roles[supportedValue.category].weakness}
                         functionality={roles[supportedValue.category].functionality}
+                        description={roles[mainValue.category].description}
                     />
                 </div>
                 <h2 style={{
@@ -241,6 +243,7 @@ export default function ResultPage() {
                         haracteristic={roles[smallest.category].haracteristic}
                         weakness={roles[smallest.category].weakness}
                         functionality={roles[smallest.category].functionality}
+                        description={roles[mainValue.category].description}
                     />
                 </div>
                 <p className={styleClasses.bottomPar}>

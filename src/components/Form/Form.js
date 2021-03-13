@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import classes from './form.module.css';
 import mark from '../../assets/Form/mark.svg';
+import axios from "axios";
 
 const Form = (props) => {
 
     const [ name, setName ] = useState('');
-    const [ surname, setSurname ] = useState('');
+    const [ phone, setPhone ] = useState('');
     const [ email, setEmail ] = useState('');
+
+    const submitHandler = (e) => {
+        console.info('submitHandler', e, name, phone, email);
+        axios.post('https://sheet.best/api/sheets/675bec1d-fd6a-49ec-a7d0-22d7220cebaa', {name, phone, email})
+            .then(() => {
+                setName('');
+                setPhone('');
+                setEmail('');
+            });
+    }
 
     return (
         <div className={classes.main}>
@@ -24,10 +35,10 @@ const Form = (props) => {
                         />
                     </div>
                     <div className={classes.component}>
-                        <label>Фамилия</label>
+                        <label>Телефон</label>
                         <input 
-                            value={surname}
-                            onChange={(e) => setSurname(e.target.value)}
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>
                     <div className={classes.component}>
@@ -38,7 +49,7 @@ const Form = (props) => {
                         />
                     </div>
                 </div>
-                <button>
+                <button onClick={submitHandler}>
                     Получить чек-лист
                 </button>
             </div>
