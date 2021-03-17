@@ -67,9 +67,9 @@
     max-width: 800px;
     border: 2px solid #A8A8A8;
     border-radius: 8px;
-    padding: 7px 10px;
+    padding: 16px 10px 8px;
     outline: none;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .body button {
@@ -87,7 +87,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
     .inputs {
         margin-top: 10px;
     }
@@ -104,7 +104,7 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
     .body {
         padding: 30px;
     }

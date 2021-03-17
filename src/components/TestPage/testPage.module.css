@@ -1,8 +1,8 @@
 .PageName {
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: 500;
-    margin-top: 40px;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    font-weight: 500 !important;
+    margin: 40px 0 24px !important;
 }
 .BoldLabel {
     text-transform: uppercase;
@@ -27,6 +27,7 @@ h1.testBelbLabel {
     line-height: 60px;
 }
 h3.testBelbLabel {
+    margin-top: 24px;
     text-align: center;
     font-weight: 500;
     font-size: 24px;

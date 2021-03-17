@@ -95,14 +95,14 @@ function TestPage( props: any ) {
                         align={'center'}
                         component="h3"
                         className={sclasses.testBelbLabel} >
-                        Определи свою роль в команде
+                        Определи свою роль в команде!
                     </Typography>
                     <Typography
                         component="section"
                         className={sclasses.instructionsText}
                     >
                         <Bold className={sclasses.instructionsStrongText}>Инструкция.</Bold>
-                        <p>В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов.</p>
+                        <p style={{marginTop: '16px'}}>В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов.</p>
                         <Bold>Рекомендуем распределять баллы 5/3/2 для достоверности результата.</Bold>
                         <br /><br />
                         <p>По результатам прохождения теста будет определена ваша роль в команде.</p>
@@ -140,7 +140,6 @@ function TestPage( props: any ) {
                         className={classes.instructionsText} 
                         style={{fontSize: '14px', lineHeight: '20px'}}
                     >
-                        <Bold>Инструкция.</Bold>
                         <p>В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. </p>
 
                         <p>По результатам прохождения теста будет определена ваша роль в команде.</p>
@@ -148,7 +147,8 @@ function TestPage( props: any ) {
                 </div>
 
                 <FixNameBlock>
-                    <Typography 
+                    <Typography
+                        align='center'
                         variant={"h6"} 
                         component={"h2"} 
                         className={sclasses.BoldLabel}
@@ -158,7 +158,7 @@ function TestPage( props: any ) {
                 </FixNameBlock>
 
                 {currentQuestions.questions.map((question: any, index: any) => (
-                    <WrapperQuestion key={index}>
+                    <WrapperQuestion key={index} style={index === 7 ? {marginBottom: '68px'} : {}}>
                         <WrapperLabel>
                             <Typography 
                                 id={"slider-question-" + index} 
@@ -292,7 +292,7 @@ const WrapperControlPanel = styled.div`
     bottom: 0;
     justify-content: center;
     align-items: center;
-    padding: 1em 0;
+    padding: 8px 0;
     font-weight: 500;
     font-size: 24px;
     line-height: 30px;
@@ -302,8 +302,8 @@ const WrapperControlPanel = styled.div`
     background-color: #fff;
     border-top: 1px solid #eee;
 
-    @media screen and (max-width: 400px) {
-        padding: 7px;
+    @media screen and (max-width: 960px) {
+        font-size: 16px;
     }
 `;
 

@@ -23,7 +23,6 @@
     font-size: 32px;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-top: 50px;
     text-align: center;
 }
 
@@ -60,8 +59,12 @@
         font-size: 6vw;
         margin-top: 30px;
     }
+    .main h3 {
+        font-size: 40px;
+    }
     .main h4 {
         font-size: 5vw;
+        width: 90%;
     }
 }
 
@@ -153,7 +156,7 @@
     align-items: center;
     justify-content: center;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
     .belbinLabel {
         margin-top: 100px;
         margin-bottom: 30px;

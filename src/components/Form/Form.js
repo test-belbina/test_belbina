@@ -63,7 +63,7 @@ const Form = (props) => {
                         <label>Почта</label>
                         <input 
                             value={email}
-                            placeholder="email@email.ru"
+                            placeholder="Введите Ваш Email"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
