@@ -7,7 +7,7 @@ export default class ApiForm {
 	API_MAIL = 'https://api.sendpulse.com';
 	GRAND_TYPE = 'Ed Tech';
 
-	SHEET_URL = 'https://sheet.best/api/sheets/675bec1d-fd6a-49ec-a7d0-22d7220cebaa';
+	SHEET_URL = 'https://sheet.best/api/sheets/fc11ea0e-9caf-46c1-95a1-55517d16c0ad';
 
 	token = '';
 
@@ -55,5 +55,19 @@ export default class ApiForm {
 				console.info('sendMail', data);
 			});
 		});
+	}
+
+	sendData(name, phone, email) {
+		return fetch(this.SHEET_URL, {
+			method: 'post',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				name,
+				phone,
+				email,
+				date: (new Date()).toLocaleString()
+			})
+		}).then(response => response.json());
+
 	}
 }

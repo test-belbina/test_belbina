@@ -87,6 +87,8 @@
     cursor: pointer;
 }
 
+.body button:disabled { background: #867e7e; color: #ececec; }
+
 @media screen and (max-width: 960px) {
     .inputs {
         margin-top: 10px;
