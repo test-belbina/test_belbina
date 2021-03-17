@@ -1,27 +1,50 @@
 .PageName {
-    font-size: 26px !important;
-    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-top: 40px;
 }
 .BoldLabel {
     text-transform: uppercase;
-    font-size: 24px !important;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-top: 40px;
 }
 .Question {
     margin: 0;
     font-size: 20px !important;
 }
-.testBelbLabel {
-    margin-bottom: 5px !important;
-    font-size: 36px !important;
-    font-weight: 600 !important;
-}
-.instructionsText {
-    font-size: 18px !important; 
-    line-height: 26px !important;
-    margin: 0 !important;
+.testBelbLabel{
+    text-align: center;
+    font-weight: 700;
 }
 
-@media screen and (max-width: 1024px) {
+h1.testBelbLabel {
+    text-align: center;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+}
+h3.testBelbLabel {
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+section.instructionsText {
+    margin-top: 64px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: justify;
+}
+.instructionsStrongText {
+    margin-bottom: 8px;
+}
+
+@media screen and (max-width: 960px) {
     .PageName {
         font-size: calc(16px + 0.2vw) !important;
     }

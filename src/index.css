@@ -1,10 +1,32 @@
+@import "~reset-css";
+
 @font-face {
     font-family: "Museo";
     src: url('./font/museo.woff2') format("woff2")
 }
 
+@font-face {
+    font-family: "Museo Sans Cyrl";
+    src: url('./font/MuseoSansCyrl/MuseoSansCyrl-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Museo Sans Cyrl";
+    src: url('./font/MuseoSansCyrl/MuseoSansCyrl-700.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Museo Sans Cyrl";
+    src: url('./font/MuseoSansCyrl/MuseoSansCyrl-900.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
 * {
-    font-family: "Museo" !important;
+    font-family: "Museo Sans Cyrl" !important;
+    font-weight: 300;
     box-sizing: border-box !important;
 }
 html {

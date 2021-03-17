@@ -99,7 +99,7 @@ export default function ResultPage() {
         return (
             <>
             {/* images bg */}
-            <img 
+            {/*<img 
                 src={topStripe}
                 alt=""
                 className={styleClasses.topStripe}
@@ -108,7 +108,7 @@ export default function ResultPage() {
                 src={rightStripe}
                 alt=""
                 className={styleClasses.rightStripe}
-            />
+            />*/}
 
             <div className={styleClasses.main}>
                 <h1>
@@ -162,16 +162,16 @@ export default function ResultPage() {
                                     <div className={styleClasses.secondColumn}>
                                         {role.category === mainValue.category &&
                                         <Gradient2>
-                                            {Math.round((role.rate * 100) / sumAllValue)}
+                                            {Math.round((role.rate * 100) / sumAllValue)}%
                                         </Gradient2>
                                         }
                                         {role.category === supportedValue.category &&
                                         <Gradient2>
-                                            {Math.round((role.rate * 100) / sumAllValue)}
+                                            {Math.round((role.rate * 100) / sumAllValue)}%
                                         </Gradient2>
                                         }
                                         {role.category !== supportedValue.category && role.category !== mainValue.category &&
-                                        Math.round((role.rate * 100) / sumAllValue)
+                                        Math.round((role.rate * 100) / sumAllValue)+'%'
                                         }
                                     </div>
                                     <div className={styleClasses.thirdColumn}>
@@ -247,9 +247,9 @@ export default function ResultPage() {
                     />
                 </div>
                 <p className={styleClasses.bottomPar}>
-                    {`Мы подготовили для тебя развернутое описание каждой роли!\n
-                    Чтобы получить наш чек-лист, тебе нужно\n
-                    оставить пару строк о себе`}
+                    Мы подготовили для тебя развернутое описание каждой роли!<br />
+                    Чтобы получить наш чек-лист, тебе нужно<br />
+                    оставить пару строк о себе
                 </p>
                 <div 
                 style={{
@@ -263,7 +263,7 @@ export default function ResultPage() {
                 </div>
                 <div className={styleClasses.belbinLabel}>
                     <img 
-                        style={{width:'100%', maxWidth: '1900px'}}
+                        style={{width:'100%'}}
                         src={belbinLabel}
                         alt=""
                     />
@@ -286,8 +286,6 @@ const Bold = styled.strong`
 // `;
 
 const Gradient2 = styled(Bold)`
-    background: linear-gradient(to right, #ad1457, #4a148c);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
 `;

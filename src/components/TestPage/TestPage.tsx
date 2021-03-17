@@ -84,31 +84,39 @@ function TestPage( props: any ) {
         return (
             <>
             <div style={{ padding: '0.5em 1em 2.1em 1em'}}>
-                {blockId === 0 && 
-                <Typography 
-                    gutterBottom 
-                    align={'center'} 
-                    className={sclasses.testBelbLabel}
-                >
-                    Тест Белбина на вашу роль в команде
-                </Typography>}
+                {blockId === 0 && <>
+                    <Typography
+                        align='center'
+                        component="h1"
+                        className={sclasses.testBelbLabel} >
+                        Тест Белбина
+                    </Typography>
+                    <Typography
+                        align={'center'}
+                        component="h3"
+                        className={sclasses.testBelbLabel} >
+                        Определи свою роль в команде
+                    </Typography>
+                    <Typography
+                        component="section"
+                        className={sclasses.instructionsText}
+                    >
+                        <Bold className={sclasses.instructionsStrongText}>Инструкция.</Bold>
+                        <p>В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов.</p>
+                        <Bold>Рекомендуем распределять баллы 5/3/2 для достоверности результата.</Bold>
+                        <br /><br />
+                        <p>По результатам прохождения теста будет определена ваша роль в команде.</p>
+                    </Typography>
+                </>}
 
-                {blockId === 0 &&
-                <Typography 
-                    gutterBottom 
-                    className={sclasses.instructionsText} 
-                >
-                    <Bold>Инструкция.</Bold> В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. По результатам прохождения теста будет определена ваша роль в команде.
-                </Typography>
-                }
                 <div style={
                     blockId === 0 ?
                     { display: 'flex', justifyContent: 'center'}
                     :
                     { display: 'flex', justifyContent: 'space-between' }
                     }>
-                    <Typography 
-                        gutterBottom 
+                    {blockId !==0 && <span></span>}
+                    <Typography
                         variant={"h6"} 
                         component={"h2"} 
                         className={sclasses.PageName}
@@ -117,11 +125,10 @@ function TestPage( props: any ) {
                     </Typography>
                     {blockId !== 0 && 
                     <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    onClick={() => setInstructionModal(!instrcutionModal)}
-                    >
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        onClick={() => setInstructionModal(!instrcutionModal)} >
                         Инструкция
                     </Button>}
                 </div>
@@ -133,7 +140,10 @@ function TestPage( props: any ) {
                         className={classes.instructionsText} 
                         style={{fontSize: '14px', lineHeight: '20px'}}
                     >
-                        <Bold>Инструкция.</Bold> В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. По результатам прохождения теста будет определена ваша роль в команде.
+                        <Bold>Инструкция.</Bold>
+                        <p>В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов. </p>
+
+                        <p>По результатам прохождения теста будет определена ваша роль в команде.</p>
                     </Typography>
                 </div>
 
@@ -247,7 +257,7 @@ const WrapperQuestion = styled.div`
 
 const WrapperWrapperSlider = styled.div`
     padding: 0 2em;
-    margin: 32px 0 72px;
+    margin: 8px 0 24px;
 `;
 
 const WrapperSlider = styled.div`
@@ -283,9 +293,12 @@ const WrapperControlPanel = styled.div`
     justify-content: center;
     align-items: center;
     padding: 1em 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
     width: 100%;
     z-index: 10000;
-    max-width: 1400px;
+    max-width: 1024px;
     background-color: #fff;
     border-top: 1px solid #eee;
 

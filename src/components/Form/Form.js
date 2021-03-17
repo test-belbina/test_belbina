@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import classes from './form.module.css';
 import mark from '../../assets/Form/mark.svg';
 import axios from "axios";
+import ApiForm from './apiForm';
 
 const Form = (props) => {
 
@@ -10,8 +11,22 @@ const Form = (props) => {
     const [ phone, setPhone ] = useState('');
     const [ email, setEmail ] = useState('');
 
+    const apiForm = new ApiForm();
+
+    const onFocusPhone = () => {
+        if (phone) {
+            setPhone("+7")
+        }
+    }
+    const onChangePhone = (value) => {
+
+        setPhone(value);
+    }
+
     const submitHandler = (e) => {
         console.info('submitHandler', e, name, phone, email);
+        apiForm.sendMail(name, email);
+
         axios.post('https://sheet.best/api/sheets/675bec1d-fd6a-49ec-a7d0-22d7220cebaa', {name, phone, email})
             .then(() => {
                 setName('');
@@ -31,6 +46,7 @@ const Form = (props) => {
                         <label>Имя</label>
                         <input 
                             value={name}
+                            placeholder="Введите Ваше имя"
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
@@ -38,13 +54,16 @@ const Form = (props) => {
                         <label>Телефон</label>
                         <input 
                             value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            placeholder="+7 (999) 123-45-67"
+                            onFocus={onFocusPhone}
+                            onChange={(e) => onChangePhone(e.target.value)}
                         />
                     </div>
                     <div className={classes.component}>
                         <label>Почта</label>
                         <input 
                             value={email}
+                            placeholder="email@email.ru"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>

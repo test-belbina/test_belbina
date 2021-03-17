@@ -29,7 +29,7 @@ function App(props: any) {
 }
 
 const BorderWrapper = styled.div`
-    max-width: 1400px;
+    max-width: 1024px;
     margin: 0 auto;
 `;
 
