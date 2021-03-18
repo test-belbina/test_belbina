@@ -1,9 +1,10 @@
+import * as check_list from './check_list' ;
 
 export default class ApiForm {
 
 	ID = '5c962c460df1b023e6654af209cae82b';
 	SID = '4fc852140f8ac4e880c7b6543f9b6896';
-	EMAIL = 'edTech500@gmail.com';
+	EMAIL = 'info@incube.world';
 	API_MAIL = 'https://api.sendpulse.com';
 	GRAND_TYPE = 'Ed Tech';
 
@@ -44,7 +45,10 @@ export default class ApiForm {
 				},
 				subject: "Test Belbina",
 				from : {"name": "Ed Tech", "email": this.EMAIL},
-				to: [{ name, email}]
+				to: [{ name, email}],
+				attachments_binary: {
+					"Чек-лист теста Белбина.pdf" : check_list
+				}
 			});
 
 
