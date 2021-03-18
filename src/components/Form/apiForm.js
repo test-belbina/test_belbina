@@ -36,8 +36,13 @@ export default class ApiForm {
 	sendMail(name, email) {
 		this.getEToken().then(token => {
 			const mailBody = JSON.stringify({
-				text:"test email by service",
-				subject: "Belbina test",
+				template: {
+					id: "010d6d55fb8a61734331ac31bc67621b",
+					variables: {
+						name
+					}
+				},
+				subject: "Test Belbina",
 				from : {"name": "Ed Tech", "email": this.EMAIL},
 				to: [{ name, email}]
 			});
