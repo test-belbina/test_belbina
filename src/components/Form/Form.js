@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import ru from 'react-phone-number-input/locale/ru'
+import { isValidPhoneNumber, isPossiblePhoneNumber } from 'react-phone-number-input'
+
 import classes from './form.module.css';
+
+import checkMark from '../../assets/Form/checkMark.svg'
 import mark from '../../assets/Form/mark.svg';
 import ApiForm from './apiForm';
 
@@ -10,53 +17,101 @@ const Form = (props) => {
     const [ phone, setPhone ] = useState('');
     const [ email, setEmail ] = useState('');
 
+    const [ nameError, setNameError ] = useState('');
     const [ phoneError, setPhoneError ] = useState('');
     const [ emailError, setEmailError ] = useState('');
+    const [ formError, setFormError ] = useState(false);
 
-    const [ validForm, isValidForm ] = useState(false);
+    const [ isSubmit, setIsSubmit ] = useState(false);
 
     const apiForm = new ApiForm();
 
-    const onFocusPhone = () => {
-        // if (phone) {
-        //     setPhone("+7")
-        // }
+    const isValidEmail = (value) => {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        if (re.test(value)) {
+            return true
+        } else {
+            return false
+        }
     }
+
+
     const checkValidForm = () => {
-        isValidForm(name.length > 0 && phone.length > 0 && phoneError.length == 0 && email.length > 0 && emailError.length == 0);
-        console.info('check', `${name} | ${phoneError} | ${emailError}`, name.length > 0, phoneError.length > 0, emailError.length > 0);
+        setFormError(false)
+
+        let valid = true;
+
+        if (name === '') {
+            setNameError('Заполните имя');
+            setFormError(true)
+            valid = false
+        }
+
+        if (phone === '') {
+            setPhoneError('Заполните номер телефона');
+            setFormError(true)
+            valid = false
+        }
+
+        if (email === '') {
+            setEmailError('Заполните Email')
+            setFormError(true)
+            valid = false
+        }
+
+        if (phone && isPossiblePhoneNumber(phone) === false) {
+            setPhoneError(`Некорректный номер телефона`)
+            setFormError(true)
+            valid = false
+        }
+
+        if (isValidEmail(email) === false) {
+            setEmailError(`Некорректный адрес email`)
+            setFormError(true)
+            valid = false
+        }
+
+        return valid
+
     }
+
+    const onChangeName = (value) => {
+        setNameError('');
+        setName(value);
+    }
+
     const onChangePhone = (value) => {
+        setPhoneError('');
         setPhone(value);
-        if (/^\+\d\s?\(?\d{3}\)?\s?\d{3}\-?\d{2}\-?\d{2}$/.test(value) || value == '') {
-            setPhoneError('');
-        } else {
-            setPhoneError(`"${value}" некорректный номер телефона`);
-        }
-        checkValidForm();
     }
+
     const onChangeEmail = (value) => {
+        setEmailError('');
         setEmail(value);
-
-        if ((value.split('@').length == 2 && /^\w[\w\-\d\.]*[\w\d]@[\w\d][\w\-\d\.]*[\w\d]$/.test(value)) || value == '') {
-            setEmailError('');
-        } else {
-            setEmailError(`"${value}" некорректный адрес email`);
-        }
-
-        checkValidForm();
     }
+
+// TODO: Обработка ошибок fetch
 
     const submitHandler = (e) => {
-        console.info('submitHandler', e, name, phone, email);
-        apiForm.sendMail(name, email);
+        checkValidForm()
 
-        apiForm.sendData(name, phone, email)
-            .then(() => {
-                setName('');
-                setPhone('');
-                setEmail('');
-            })
+        if (checkValidForm()) {
+            
+            apiForm.sendMail(name, email);
+
+            apiForm.sendData(name, phone, email)
+                .then(() => {
+                    setName('');
+                    setPhone('');
+                    setEmail('');
+                    setFormError(false);
+                })
+
+            setIsSubmit(true);
+            
+        }
+      
 
         // axios.post('https://sheet.best/api/sheets/675bec1d-fd6a-49ec-a7d0-22d7220cebaa', {name, phone, email})
         //     .then(() => {
@@ -66,7 +121,7 @@ const Form = (props) => {
 
     return (
         <div className={classes.main}>
-            <div className={classes.body}>
+            { !isSubmit && <div className={classes.body}>
                 <h3>
                     Анкета героя Белбина
                 </h3>
@@ -75,37 +130,52 @@ const Form = (props) => {
                         <label>Имя</label>
                         <input 
                             value={name}
-                            placeholder="Введите Ваше имя"
-                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Введите имя"
+                            onChange={ (e) => onChangeName(e.target.value) }
                         />
+                        {formError && <span style={{color: '#c20303', paddingLeft: '8px'}}>{nameError}</span> }
                     </div>
                     <div className={classes.component}>
                         <label>Телефон</label>
-                        <input 
+
+                        <PhoneInput
+                            defaultCountry="RU"
+                            countrySelectProps={{ unicodeFlags: true }}
+                            placeholder="999 123-45-67"
                             value={phone}
-                            type="tel"
-                            placeholder="+7 (999) 123-45-67"
-                            maxLength="18"
-                            onFocus={onFocusPhone}
-                            onChange={(e) => onChangePhone(e.target.value)}
+                            onChange={ onChangePhone }
+                            labels={ru}
                         />
-                        <span style={{color: '#c20303', paddingLeft: '8px'}}>{phoneError}</span>
+
+                        {formError && <span style={{color: '#c20303', paddingLeft: '8px'}}>{phoneError}</span> }
+
                     </div>
                     <div className={classes.component}>
                         <label>Почта</label>
                         <input
                             type="email"
                             value={email}
-                            placeholder="Введите Ваш Email"
+                            placeholder="Введите Email"
                             onChange={(e) => onChangeEmail(e.target.value)}
                         />
-                        <span style={{color: '#c20303', paddingLeft: '8px'}}>{emailError}</span>
+                        {formError && <span style={{color: '#c20303', paddingLeft: '8px'}}>{emailError}</span> }
                     </div>
                 </div>
-                <button onClick={submitHandler} disabled={!validForm}>
+                <button onClick={submitHandler}>
                     Получить чек-лист
                 </button>
-            </div>
+            </div> }
+
+            { isSubmit && <div className={classes.body} style={{ paddingTop: 0 }}>
+                 <h3>
+                    Чек-лист отправлен!
+                </h3>
+                <div className={classes.component} style={{ alignItems: 'center', marginTop: 0 }}>
+                    <img src={ checkMark } style={{ width: '60%' }}/>
+                </div> 
+
+            </div> }
+
             <img  
                 src={mark}
                 alt=""

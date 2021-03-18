@@ -1,5 +1,6 @@
 .Main {
     padding-top: 80px;
+    padding: 0.5em 1em 2.1em;
 }
 
 .PageName {
@@ -62,7 +63,7 @@ section.instructionsText {
     font-weight: 300;
     font-size: 18px;
     line-height: 22px;
-    text-align: justify;
+    text-align: left;
 }
 
 .instructionsText p {

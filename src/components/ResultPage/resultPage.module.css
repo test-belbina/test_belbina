@@ -7,10 +7,11 @@
     padding-top: 80px;
     overflow-y: visible;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .main h1 {
-    font-family: "Benzin Medium", sans-serif !important;
+    font-family: "Inter", sans-serif !important;
     font-weight: 700;
     font-size: 50px;
 }
@@ -20,7 +21,7 @@
     margin-top: 40px;
 }
 .main h3 {
-    font-family: "Benzin Medium", sans-serif !important;
+    font-family: "Inter", sans-serif !important;
     font-weight: 600;
     font-size: 36px;
     margin-top: 30px;
@@ -73,7 +74,7 @@
 .table {
     width: 50%;
     box-sizing: border-box;
-    min-width: 350px;
+    min-width: 625px;
     background-color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 0px calc(10px + 1vw);
@@ -93,6 +94,7 @@
     border-top: 1px solid #000;
 }
 .firstColumn {
+    min-width: 268px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -102,6 +104,7 @@
     font-size: 24px;
 }
 .secondColumn {
+    min-width: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,6 +114,7 @@
     font-size: 24px;
 }
 .thirdColumn {
+    min-width: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,10 +134,12 @@
 @media screen and (max-width: 960px) {
     .table {
         width: 90%;
+        min-width: 350px;
     }
     .firstColumn, .secondColumn, .thirdColumn {
         font-size: 12px;
         padding: 13px 0;
+        min-width: 0;
     }
     .bottomPar {
         font-size: 14px;
@@ -151,34 +157,40 @@
     width: 100%;
 }
 
-/*
+
 
 .belbinLabel {
-    margin-top: 150px;
-    width: 100%;
+    display: block;
+    margin-top: 220px;
     margin-bottom: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-bottom: 200px;
+    height: 150px;
+}
+
+.belbinLabel img {   
+    height: 65px;
+}
+
+/*
+.belbinLabel {
+    margin-top: 150px;
+    margin-bottom: 50px;
+    transform: rotate(-6deg);
+    background: url(../../assets/ResultPage/belbinLabel.svg) bottom center;
 }
 
 */
-
-.belbinLabel {
-    position: absolute;
-    width: 2124px;
-    height: 201.21px;
-    left: -154.6px;
-    top: 12829.98px;
-
-    transform: rotate(-6deg);
-}
 
 @media screen and (max-width: 960px) {
     .belbinLabel {
         margin-top: 100px;
         margin-bottom: 30px;
     }
+
+    .belbinLabel img {   
+        height: 25px;
+    }
+
 }
 @media screen and (max-width: 600px) {
     .belbinLabel {

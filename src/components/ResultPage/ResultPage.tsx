@@ -13,6 +13,7 @@ import { roles, keys } from '../../text/roles';
 import topStripe from '../../assets/ResultPage/topStripe.svg';
 import rightStripe from '../../assets/ResultPage/rightStripe.svg';
 import belbinLabel from '../../assets/ResultPage/belbinLabel.svg';
+import BELBINLabel from '../../assets/ResultPage/BELBIN.svg';
 import styleClasses from './resultPage.module.css';
 
 export default function ResultPage() {
@@ -262,11 +263,8 @@ export default function ResultPage() {
                     <Form />
                 </div>
                 <div className={styleClasses.belbinLabel}>
-                    <img 
-                        style={{width:'100%'}}
-                        src={belbinLabel}
-                        alt=""
-                    />
+                    <img src={BELBINLabel} style={{ transform: "rotate(-6deg)", paddingBottom: '0px' }} alt=""/>
+                    <img src={BELBINLabel} style={{ transform: "rotate(6deg)", paddingTop: '0px' }} alt=""/>
                 </div>
             </div>
         </>
