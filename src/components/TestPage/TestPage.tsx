@@ -83,55 +83,70 @@ function TestPage( props: any ) {
 
         return (
             <>
-            <div style={{ padding: '0.5em 1em 2.1em 1em'}}>
+            <div className={
+                blockId === 0 ? sclasses.Main : undefined
+            }>
                 {blockId === 0 && <>
-                    <Typography
-                        align='center'
-                        component="h1"
-                        className={sclasses.testBelbLabel} >
-                        Тест Белбина
-                    </Typography>
+
                     <Typography
                         align={'center'}
                         component="h3"
                         className={sclasses.testBelbLabel} >
                         Определи свою роль в команде!
                     </Typography>
+
+                    <Typography
+                        align='center'
+                        component="h1"
+                        className={sclasses.testBelbLabel} >
+                        Тест Белбина
+                    </Typography>
+                    
                     <Typography
                         component="section"
                         className={sclasses.instructionsText}
                     >
-                        <Bold className={sclasses.instructionsStrongText}>Инструкция.</Bold>
-                        <p style={{marginTop: '16px'}}>В каждой из семи частей данного теста распределите 10 баллов между 8-мью утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов.</p>
-                        <Bold>Рекомендуем распределять баллы 5/3/2 для достоверности результата.</Bold>
-                        <br /><br />
+                        <p style={{marginTop: '16px'}}>В каждой из семи частей данного теста распределите 10 баллов между 8 утверждениями. Если вы согласны с каким-либо утверждением на все 100%, вы можете отдать ему все 10 баллов.</p>
+                        <br/>
+                        <p>Рекомендуем распределять баллы 5/3/2 для достоверности результата.</p>
+                        <br/>
                         <p>По результатам прохождения теста будет определена ваша роль в команде.</p>
                     </Typography>
                 </>}
-
+            
                 <div style={
-                    blockId === 0 ?
-                    { display: 'flex', justifyContent: 'center'}
-                    :
-                    { display: 'flex', justifyContent: 'space-between' }
-                    }>
-                    {blockId !==0 && <span></span>}
-                    <Typography
-                        variant={"h6"} 
-                        component={"h2"} 
-                        className={sclasses.PageName}
-                    >
-                        Часть { blockId + 1 } из { questionLength }
-                    </Typography>
-                    {blockId !== 0 && 
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        size="small"
-                        onClick={() => setInstructionModal(!instrcutionModal)} >
-                        Инструкция
-                    </Button>}
+                    {
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'baseline',
+                        flexGrow: 1,
+                    }
+                }>
+                
+                    <div>
+                        <Typography
+                            variant={"h6"} 
+                            component={"h2"} 
+                            className={sclasses.PageName}
+                        >
+                            { blockId + 1 } часть из { questionLength }
+                        </Typography>
+                    </div>
+
+                    <div>
+                        {blockId !== 0 && 
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                            onClick={() => setInstructionModal(!instrcutionModal)} >
+                            Инструкция
+                        </Button>}
+                    </div>
+
                 </div>
+
                 <div className={
                     instrcutionModal ? classes.instruction + ' ' + classes.instructionOpened
                                     : classes.instruction + ' ' + classes.instructionClosed }> 
@@ -153,19 +168,26 @@ function TestPage( props: any ) {
                         component={"h2"} 
                         className={sclasses.BoldLabel}
                     >
-                        <Bold>{currentQuestions.title}</Bold>
+                        <p>
+                            {currentQuestions.title}
+                        </p>
                     </Typography>
                 </FixNameBlock>
 
                 {currentQuestions.questions.map((question: any, index: any) => (
-                    <WrapperQuestion key={index} style={index === 7 ? {marginBottom: '68px'} : {}}>
+                    <WrapperQuestion key={index} style={index === 7 ? {marginBottom: '120px'} : {}}>
                         <WrapperLabel>
                             <Typography 
                                 id={"slider-question-" + index} 
                                 gutterBottom 
                                 style={ index === 0 ? { 
-                                    marginTop: window.innerWidth > 1024 ? '25px' : '15px'
-                                } : {}} 
+                                    marginTop: window.innerWidth > 1024 ? '25px' : '15px',
+                                    fontWeight: 300,
+                                    fontSize: 18,
+                                } : {
+                                    fontWeight: 300,
+                                    fontSize: 18,
+                                }} 
                                 className={sclasses.Question}
                             >
                                 {index + 1}.  {question}
@@ -197,10 +219,16 @@ function TestPage( props: any ) {
                     </WrapperQuestion>
                 ))}
             </div>
-            <WrapperControlPanel>
+            <WrapperControlPanel style={
+                { 
+                    paddingTop: '15px',
+                    paddingBottom: '20px',
+                }
+            }>
             {possibleMaximumValueQuestion !== 0 && 
             <>
-                <p style={{ marginRight: '2%', textAlign: 'center'}}> 
+            <div style={{ display: 'flex', alignItems: 'baseline' }}>
+                <p style={{ fontWeight: 600 }}> 
                     {possibleMaximumValueQuestion === 1 ? 'Остался ' : 'Осталось '}
                     {possibleMaximumValueQuestion} 
                     {possibleMaximumValueQuestion >= 5 ? ' баллов ' :
@@ -219,7 +247,9 @@ function TestPage( props: any ) {
                         <InfoIconStyled size="20" />
                     </IconButton>
                 </WrapperTooltipInfo>
+            </div>
             </>}
+            
 
                 {blockId + 1 < questionLength && (
                     <Button

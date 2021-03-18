@@ -114,9 +114,9 @@ export default function ResultPage() {
                 <h1>
                     Результат теста
                 </h1>
-                <h4>
+                <h3>
                     Таблица с процентным соотношением ролей
-                </h4>
+                </h3>
                 <div className={styleClasses.table}> 
                     <ul>
                         <li className={styleClasses.firstLi}>

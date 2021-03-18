@@ -1,5 +1,9 @@
 @import "~reset-css";
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+
+
+/*
 @font-face {
     font-family: "Museo";
     src: url('./font/museo.woff2') format("woff2")
@@ -24,8 +28,25 @@
     font-style: normal;
 }
 
+*/
+
+@font-face {
+    font-family: "Benzin Medium";
+    src: url('./font/benzin-medium.ttf');
+}
+
+@font-face {
+    font-family: "Benzin Regular";
+    src: url('./font/benzin-regular.ttf');
+}
+
+@font-face {
+    font-family: "Benzin ExtraBold";
+    src: url('./font/benzin-extrabold.ttf');
+}
+
 * {
-    font-family: "Museo Sans Cyrl" !important;
+    font-family: "Inter", sans-serif !important;
     font-weight: 300;
     box-sizing: border-box !important;
 }

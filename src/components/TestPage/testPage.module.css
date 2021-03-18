@@ -1,8 +1,22 @@
+.Main {
+    padding-top: 80px;
+}
+
 .PageName {
+/* 
     font-size: 20px !important;
     line-height: 24px !important;
     font-weight: 500 !important;
+
+*/
+
     margin: 40px 0 24px !important;
+    color:#BABABA;
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 30px !important;
+    line-height: 48px !important;
+    text-align: center !important;
 }
 .BoldLabel {
     text-transform: uppercase;
@@ -11,36 +25,54 @@
     font-weight: 500;
     margin-top: 40px;
 }
-.Question {
+
+.BoldLabel p {
+    font-family: "Inter" !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 48px;
+    text-align: center;
+}
+
+.Question > * {
     margin: 0;
     font-size: 20px !important;
 }
 .testBelbLabel{
+    text-transform: uppercase;
+    font-family: "Benzin ExtraBold", sans-serif !important;
     text-align: center;
-    font-weight: 700;
 }
 
 h1.testBelbLabel {
-    text-align: center;
-    font-weight: 700;
-    font-size: 50px;
-    line-height: 60px;
+    text-align: left;
+    font-size: 80px;
+    line-height: 94px;
 }
 h3.testBelbLabel {
     margin-top: 24px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
+    text-align: left;
+    font-size: 30px;
+    line-height: 35px;
 }
 
 section.instructionsText {
-    margin-top: 64px;
+    margin-top: 32px;
     font-weight: 300;
     font-size: 18px;
     line-height: 22px;
     text-align: justify;
 }
+
+.instructionsText p {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.1;
+}
+
 .instructionsStrongText {
     margin-bottom: 8px;
 }

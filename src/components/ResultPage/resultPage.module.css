@@ -10,17 +10,19 @@
 }
 
 .main h1 {
+    font-family: "Benzin Medium", sans-serif !important;
     font-weight: 700;
-    font-size: 70px;
+    font-size: 50px;
 }
 .main h2 {
     font-weight: 700;
     font-size: 54px;
     margin-top: 40px;
 }
-.main h4 {
+.main h3 {
+    font-family: "Benzin Medium", sans-serif !important;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 36px;
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
@@ -118,6 +120,7 @@
 }
 .bottomPar {
     font-size: 28px;
+    line-height: 1.6;
     text-align: center;
     color: #000;
     font-weight: 300;
@@ -148,6 +151,8 @@
     width: 100%;
 }
 
+/*
+
 .belbinLabel {
     margin-top: 150px;
     width: 100%;
@@ -156,6 +161,19 @@
     align-items: center;
     justify-content: center;
 }
+
+*/
+
+.belbinLabel {
+    position: absolute;
+    width: 2124px;
+    height: 201.21px;
+    left: -154.6px;
+    top: 12829.98px;
+
+    transform: rotate(-6deg);
+}
+
 @media screen and (max-width: 960px) {
     .belbinLabel {
         margin-top: 100px;
