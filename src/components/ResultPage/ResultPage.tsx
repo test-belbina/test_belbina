@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import RoleBlock from './RoleBlock/RoleBlock';
 import Form from '../Form/Form';
@@ -15,8 +15,11 @@ import rightStripe from '../../assets/ResultPage/rightStripe.svg';
 import belbinLabel from '../../assets/ResultPage/belbinLabel.svg';
 import BELBINLabel from '../../assets/ResultPage/BELBIN.svg';
 import styleClasses from './resultPage.module.css';
+import { Button } from "@material-ui/core";
 
 export default function ResultPage() {
+
+    const [ isCopied, setIsCopies ] = useState(false);
 
     const questionsRate = useCustomSelector(questionState);
 
@@ -94,6 +97,21 @@ export default function ResultPage() {
             // exsmallest = smallest;
             smallest = topRoles[value];
         }
+    }
+
+    const copyToClipboard = () => {
+
+        const el = document.createElement('textarea');
+        el.value = window.location.origin;
+        el.setAttribute('readonly', '');
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);  
+        
+        setIsCopies(true);
     }
 
 
@@ -261,6 +279,14 @@ export default function ResultPage() {
                     justifyContent: 'center'
                 }}>
                     <Form />
+                </div>
+                <div className={ styleClasses.shareButton }>
+                    <button onClick={ copyToClipboard } 
+                    style = { isCopied ? { background: "#867e7e", color: "#ececec" } : {} }
+                    >
+                        { isCopied ? "Скопировано" : "Поделиться тестом" }
+                    </button>
+                    <textarea style={{ display: "none" }}>{ window.location.origin }</textarea>
                 </div>
                 <div className={styleClasses.belbinLabel}>
                     <img src={BELBINLabel} style={{ transform: "rotate(-6deg)", paddingBottom: '0px' }} alt=""/>

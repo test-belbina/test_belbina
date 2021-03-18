@@ -45,6 +45,31 @@
     right: -50px;
 }
 
+.shareButton {
+    display: flex;
+    align-items: start;
+    width: 100%;
+    max-width: 700px;
+}
+
+.shareButton button {
+    max-width: 400px;
+    border-radius: 8px;
+    background-color: #5850F1;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px !important;
+    padding: 10px 10px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.shareButton button:disabled { background: #867e7e; color: #ececec; }
+
 @media screen and (max-width: 960px) {
     .topStripe {
         width: 83%;
@@ -55,6 +80,11 @@
         right: 0px;
         height: auto;
     }
+
+    .shareButton {
+        width: 80%;
+    }
+
     .main h1 {
         font-size: 9vw;
     }
@@ -161,14 +191,14 @@
 
 .belbinLabel {
     display: block;
-    margin-top: 220px;
+    margin-top: 160px;
     margin-bottom: 50px;
     padding-bottom: 200px;
     height: 150px;
 }
 
 .belbinLabel img {   
-    height: 65px;
+    height: 80px;
 }
 
 /*
@@ -188,7 +218,7 @@
     }
 
     .belbinLabel img {   
-        height: 25px;
+        height: 40px;
     }
 
 }
@@ -196,5 +226,9 @@
     .belbinLabel {
         margin-top: 70px;
         margin-bottom: 20px;
+    }
+
+    .belbinLabel img {   
+        height: 30px;
     }
 }
