@@ -110,12 +110,6 @@ const Form = (props) => {
             setIsSubmit(true);
             
         }
-      
-
-        // axios.post('https://sheet.best/api/sheets/675bec1d-fd6a-49ec-a7d0-22d7220cebaa', {name, phone, email})
-        //     .then(() => {
-        //
-        //     });
     }
 
     return (

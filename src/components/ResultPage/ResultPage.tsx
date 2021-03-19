@@ -103,7 +103,7 @@ export default function ResultPage() {
     const copyToClipboard = () => {
 
         const el = document.createElement('textarea');
-        el.value = window.location.origin + '/test_belbina/';
+        el.value = window.location.origin + '/';
         el.setAttribute('readonly', '');
         el.style.position = 'absolute';
         el.style.left = '-9999px';

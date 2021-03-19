@@ -22,7 +22,7 @@ sagaMiddleware.run(rootSaga(services));
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter basename="test_belbina">
+            <BrowserRouter>
                 <App />
             </BrowserRouter>
         </Provider>
