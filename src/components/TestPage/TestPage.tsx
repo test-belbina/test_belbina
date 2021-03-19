@@ -284,6 +284,7 @@ function TestPage( props: any ) {
             
 
                 {blockId + 1 < questionLength && (
+                    <ThemeProvider theme={ buttonTheme }>
                     <Button
                         variant="contained"
                         color="primary"
@@ -293,6 +294,7 @@ function TestPage( props: any ) {
                     >
                         Далее
                     </Button>
+                    </ThemeProvider>
                 )}
 
                 {blockId + 1 === questionLength && (
