@@ -14,6 +14,8 @@ import topStripe from '../../assets/ResultPage/topStripe.svg';
 import rightStripe from '../../assets/ResultPage/rightStripe.svg';
 import belbinLabel from '../../assets/ResultPage/belbinLabel.svg';
 import BELBINLabel from '../../assets/ResultPage/BELBIN.svg';
+import shareIcon from '../../assets/ResultPage/shareIcon.svg';
+import shareIconColored from '../../assets/ResultPage/shareIconColored.svg';
 import styleClasses from './resultPage.module.css';
 import { Button } from "@material-ui/core";
 
@@ -34,7 +36,6 @@ export default function ResultPage() {
             return acc + questionsRate[pageId][questionId];
        }, 0);
     };
-    console.log(updatedRoles);
 
     // ищем топ всех ролей
     let array = [];
@@ -102,7 +103,7 @@ export default function ResultPage() {
     const copyToClipboard = () => {
 
         const el = document.createElement('textarea');
-        el.value = window.location.origin;
+        el.value = window.location.origin + '/test_belbina/';
         el.setAttribute('readonly', '');
         el.style.position = 'absolute';
         el.style.left = '-9999px';
@@ -282,11 +283,12 @@ export default function ResultPage() {
                 </div>
                 <div className={ styleClasses.shareButton }>
                     <button onClick={ copyToClipboard } 
-                    style = { isCopied ? { background: "#867e7e", color: "#ececec" } : {} }
+                    style = { isCopied ? { color: "#5850F1" } : {} }
                     >
+                     <img src={ isCopied ? shareIconColored : shareIcon } className={ styleClasses.buttonIcon }
+                    />
                         { isCopied ? "Скопировано" : "Поделиться тестом" }
                     </button>
-                    <textarea style={{ display: "none" }}>{ window.location.origin }</textarea>
                 </div>
                 <div className={styleClasses.belbinLabel}>
                     <img src={BELBINLabel} style={{ transform: "rotate(-6deg)", paddingBottom: '0px' }} alt=""/>

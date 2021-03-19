@@ -47,25 +47,33 @@
 
 .shareButton {
     display: flex;
-    align-items: start;
+    align-items: center;
     width: 100%;
     max-width: 700px;
+    justify-content: baseline;
 }
 
 .shareButton button {
+    display: flex;
+    align-items: flex-end;
+    width: 50%;
     max-width: 400px;
     border-radius: 8px;
-    background-color: #5850F1;
+    background-color: transparent;
     outline: none;
     border: none;
-    color: #fff;
+    color: #B3B3B3;
     font-weight: 700;
-    font-size: 20px !important;
-    padding: 10px 10px;
+    font-size: 24px !important;
     margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
     cursor: pointer;
+}
+
+.buttonIcon {
+    color: #B3B3B3;
+    margin-top: 10px;
+    width: 40px;
+    margin-right: 10px;
 }
 
 .shareButton button:disabled { background: #867e7e; color: #ececec; }
@@ -81,8 +89,16 @@
         height: auto;
     }
 
-    .shareButton {
-        width: 80%;
+    .shareButton button {
+        width: 50%;
+        margin-top: 10px;
+        font-size: 20px !important;
+    }
+
+    .buttonIcon {
+        margin-top: 10px;
+        margin-left: 70px;
+        width: 35px;
     }
 
     .main h1 {
@@ -172,7 +188,7 @@
         min-width: 0;
     }
     .bottomPar {
-        font-size: 14px;
+        font-size: 18px;
         margin-top: 40px;
         padding: 0 16px;
     }
@@ -230,5 +246,17 @@
 
     .belbinLabel img {   
         height: 30px;
+    }
+
+    .shareButton button {
+        width: 80% !important;
+        margin-top: 10px;
+        font-size: 18px !important;
+    }
+
+    .buttonIcon {
+        margin-right: 10px;
+        margin-top: 5px;
+        width: 28px;
     }
 }

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
-import ru from 'react-phone-number-input/locale/ru'
+import Input from 'react-phone-number-input/input'
 import { isValidPhoneNumber, isPossiblePhoneNumber } from 'react-phone-number-input'
 
 import classes from './form.module.css';
@@ -138,13 +137,10 @@ const Form = (props) => {
                     <div className={classes.component}>
                         <label>Телефон</label>
 
-                        <PhoneInput
-                            defaultCountry="RU"
-                            countrySelectProps={{ unicodeFlags: true }}
-                            placeholder="999 123-45-67"
+                        <Input
+                            placeholder="7 999 123-45-67"
                             value={phone}
                             onChange={ onChangePhone }
-                            labels={ru}
                         />
 
                         {formError && <span style={{color: '#c20303', paddingLeft: '8px'}}>{phoneError}</span> }

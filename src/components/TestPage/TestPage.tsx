@@ -83,9 +83,7 @@ function TestPage( props: any ) {
 
         return (
             <>
-            <div className={
-                blockId === 0 ? sclasses.Main : undefined
-            }>
+            <div className={sclasses.Main} style={ blockId === 0 ? {} : { paddingTop: 0 } }>
                 {blockId === 0 && <>
 
                     <Typography

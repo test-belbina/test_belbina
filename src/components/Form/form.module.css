@@ -73,7 +73,7 @@
 }
 
 .body button {
-    width: 80%;
+    width: 50%;
     max-width: 400px;
     border-radius: 8px;
     background-color: #5850F1;
@@ -90,6 +90,10 @@
 .body button:disabled { background: #867e7e; color: #ececec; }
 
 @media screen and (max-width: 960px) {
+    .main {
+        max-width: 700px;
+    }
+
     .inputs {
         margin-top: 10px;
     }
@@ -97,8 +101,9 @@
         margin-top: 10px;
     }
     .body button {
+        width: 40%;
         margin-top: 20px;
-        padding: 6px 10px;
+        padding: 8px 10px;
         font-size: 16px !important;
     }
     .inputs .component label {
@@ -111,11 +116,18 @@
         padding: 30px;
     }
     .body h3 {
-        font-size: 30px;
+        font-size: 28px !important;
+        margin-top: 10px !important;
+        margin-bottom: 0px !important;
     }
     .inputs .component label {
         font-size: 18px;
     }
+
+    .inputs .component input {
+        padding: 8px 10px 8px;
+    }
+
 }
 @media screen and (max-width: 600px) {
     .body {
@@ -126,5 +138,9 @@
     }
     .inputs .component label {
         font-size: 15px;
+    }
+
+    .body button {
+        width: 70%;
     }
 }
