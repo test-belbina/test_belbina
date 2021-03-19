@@ -14,9 +14,39 @@ import { questions, questionLength } from '../../text/questions';
 import { questionState } from 'src/store/rootSelector';
 import { setValue } from 'src/store/questions/actions';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
 import sclasses from './testPage.module.css';
 
+const sliderTheme = createMuiTheme({
+    overrides: {
+        MuiSlider: {
+            thumb: {
+                color: "#5850F1",
+            },
+            track: {
+                color: "#5850F1",
+            },
+            rail: {
+                color: "#5850F1",
+            },
+        },
+    },
+})
+
+const buttonTheme = createMuiTheme({
+    overrides: {
+        MuiButton: {
+            containedPrimary: {
+                backgroundColor: "#5850F1",
+            }
+        }
+    }
+})
+
 const useStyles = {
+
     instructionsText: {
         fontSize: "1em",
         lineHeight: 1.1,
@@ -134,13 +164,15 @@ function TestPage( props: any ) {
 
                     <div>
                         {blockId !== 0 && 
+                        <ThemeProvider theme={buttonTheme}>
                         <Button
                             variant="contained"
                             color="primary"
                             size="large"
                             onClick={() => setInstructionModal(!instrcutionModal)} >
                             Инструкция
-                        </Button>}
+                        </Button>
+                        </ThemeProvider>}
                     </div>
 
                 </div>
@@ -193,6 +225,7 @@ function TestPage( props: any ) {
                         </WrapperLabel>
                         <WrapperWrapperSlider>
                             <WrapperSlider paddingRight={(questionsRate[blockId][index] + possibleMaximumValueQuestion) * 10} >
+                            <ThemeProvider theme={sliderTheme}>
                                 <Slider
                                     onChange={(event, value) =>
                                         handleChangeQuestion(value, index)
@@ -212,6 +245,7 @@ function TestPage( props: any ) {
                                     className={classes.violet}
                                     disabled={questionsRate[blockId][index] + possibleMaximumValueQuestion === 0}
                                 />
+                            </ThemeProvider>
                             </WrapperSlider>
                         </WrapperWrapperSlider>
                     </WrapperQuestion>
@@ -262,6 +296,7 @@ function TestPage( props: any ) {
                 )}
 
                 {blockId + 1 === questionLength && (
+                    <ThemeProvider theme={ buttonTheme }>
                     <Button
                         variant="contained"
                         color="primary"
@@ -271,6 +306,7 @@ function TestPage( props: any ) {
                     >
                         Результат
                     </Button>
+                    </ThemeProvider>
                 )}
             </WrapperControlPanel>
             </>
@@ -336,7 +372,7 @@ const WrapperControlPanel = styled.div`
 `;
 
 const InfoIconStyled = styled(InfoIcon)`
-    color: #3f51b5;
+    color: #5850f1;
 `;
 
 const WrapperTooltipInfo = styled.div`
