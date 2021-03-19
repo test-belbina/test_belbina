@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/test_belbina/static/css/main.36b1986a.chunk.css",
-    "main.js": "/test_belbina/static/js/main.2a114556.chunk.js",
-    "main.js.map": "/test_belbina/static/js/main.2a114556.chunk.js.map",
+    "main.css": "/test_belbina/static/css/main.db332e58.chunk.css",
+    "main.js": "/test_belbina/static/js/main.771c1348.chunk.js",
+    "main.js.map": "/test_belbina/static/js/main.771c1348.chunk.js.map",
     "runtime-main.js": "/test_belbina/static/js/runtime-main.17e4da71.js",
     "runtime-main.js.map": "/test_belbina/static/js/runtime-main.17e4da71.js.map",
     "static/css/2.105e8b46.chunk.css": "/test_belbina/static/css/2.105e8b46.chunk.css",
-    "static/js/2.9cd608e5.chunk.js": "/test_belbina/static/js/2.9cd608e5.chunk.js",
-    "static/js/2.9cd608e5.chunk.js.map": "/test_belbina/static/js/2.9cd608e5.chunk.js.map",
+    "static/js/2.be338a38.chunk.js": "/test_belbina/static/js/2.be338a38.chunk.js",
+    "static/js/2.be338a38.chunk.js.map": "/test_belbina/static/js/2.be338a38.chunk.js.map",
     "index.html": "/test_belbina/index.html",
     "static/css/2.105e8b46.chunk.css.map": "/test_belbina/static/css/2.105e8b46.chunk.css.map",
-    "static/css/main.36b1986a.chunk.css.map": "/test_belbina/static/css/main.36b1986a.chunk.css.map",
-    "static/js/2.9cd608e5.chunk.js.LICENSE.txt": "/test_belbina/static/js/2.9cd608e5.chunk.js.LICENSE.txt",
+    "static/css/main.db332e58.chunk.css.map": "/test_belbina/static/css/main.db332e58.chunk.css.map",
+    "static/js/2.be338a38.chunk.js.LICENSE.txt": "/test_belbina/static/js/2.be338a38.chunk.js.LICENSE.txt",
     "static/media/BELBIN.143ada9e.svg": "/test_belbina/static/media/BELBIN.143ada9e.svg",
     "static/media/index.css": "/test_belbina/static/media/benzin-regular.a1717d5b.ttf",
     "static/media/checkMark.b02177d2.svg": "/test_belbina/static/media/checkMark.b02177d2.svg",
@@ -23,13 +23,15 @@
     "static/media/mislitel.8be4c246.jpg": "/test_belbina/static/media/mislitel.8be4c246.jpg",
     "static/media/ozenchik.a35bb5e8.jpg": "/test_belbina/static/media/ozenchik.a35bb5e8.jpg",
     "static/media/predsedatel.79dd26bd.jpg": "/test_belbina/static/media/predsedatel.79dd26bd.jpg",
-    "static/media/razvedchik.37ae9f02.jpg": "/test_belbina/static/media/razvedchik.37ae9f02.jpg"
+    "static/media/razvedchik.37ae9f02.jpg": "/test_belbina/static/media/razvedchik.37ae9f02.jpg",
+    "static/media/shareIcon.148d6f12.svg": "/test_belbina/static/media/shareIcon.148d6f12.svg",
+    "static/media/shareIconColored.04a3f1d9.svg": "/test_belbina/static/media/shareIconColored.04a3f1d9.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.17e4da71.js",
     "static/css/2.105e8b46.chunk.css",
-    "static/js/2.9cd608e5.chunk.js",
-    "static/css/main.36b1986a.chunk.css",
-    "static/js/main.2a114556.chunk.js"
+    "static/js/2.be338a38.chunk.js",
+    "static/css/main.db332e58.chunk.css",
+    "static/js/main.771c1348.chunk.js"
   ]
 }
