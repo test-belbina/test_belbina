@@ -131,12 +131,7 @@ export default function ResultPage() {
             />*/}
 
             <div className={styleClasses.main}>
-                <h1>
-                    Результат теста
-                </h1>
-                <h3>
-                    Таблица с процентным соотношением ролей
-                </h3>
+                <h1>Результат теста</h1>
                 <div className={styleClasses.table}> 
                     <ul>
                         <li className={styleClasses.firstLi}>
@@ -282,13 +277,16 @@ export default function ResultPage() {
                     <Form />
                 </div>
                 <div className={ styleClasses.shareButton }>
-                    <button onClick={ copyToClipboard } 
+					<a href="http://instagram.com/###?ref=badge" style={{display: 'inline-block', width: '16px', height: '16px', background: 'url(http://badges.instagram.com/static/images/ig-badge-sprite-16.png) no-repeat 0 0'}}>
+						<img src="http://badges.instagram.com/static/images/ig-badge-16.png" alt="Instagram" />
+					</a>
+					{/*<button onClick={ copyToClipboard }
                     style = { isCopied ? { color: "#5850F1" } : {} }
                     >
                      <img src={ isCopied ? shareIconColored : shareIcon } className={ styleClasses.buttonIcon }
                     />
                         { isCopied ? "Скопировано" : "Поделиться тестом" }
-                    </button>
+                    </button>*/}
                 </div>
                 <div className={styleClasses.belbinLabel}>
                     <img src={BELBINLabel} style={{ transform: "rotate(-6deg)", paddingBottom: '0px' }} alt=""/>

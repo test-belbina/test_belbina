@@ -51,6 +51,10 @@ const Form = (props) => {
             setPhoneError('Заполните номер телефона');
             setFormError(true)
             valid = false
+        } else if (/[^\d\-\s]/.test(phone)){
+            setPhoneError('Введен некорректный номер телефона');
+            setFormError(true)
+            valid = false
         }
 
         if (email === '') {
@@ -81,6 +85,7 @@ const Form = (props) => {
     }
 
     const onChangePhone = (value) => {
+        console.info('onChangePhone', value);
         setPhoneError('');
         setPhone(value);
     }
@@ -98,7 +103,7 @@ const Form = (props) => {
         if (checkValidForm()) {
             
             apiForm.sendMail(name, email);
-
+            console.info('submitHandler', name, phone, email);
             apiForm.sendData(name, phone, email)
                 .then(() => {
                     setName('');
@@ -131,10 +136,11 @@ const Form = (props) => {
                     <div className={classes.component}>
                         <label>Телефон</label>
 
-                        <Input
+                        <input
+                            type="tel"
                             placeholder="7 999 123-45-67"
                             value={phone}
-                            onChange={ onChangePhone }
+                            onChange={ (e) => onChangePhone(e.target.value) }
                         />
 
                         {formError && <span style={{color: '#c20303', paddingLeft: '8px'}}>{phoneError}</span> }

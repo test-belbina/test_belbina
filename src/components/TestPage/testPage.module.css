@@ -52,7 +52,7 @@ h1.testBelbLabel {
     line-height: 94px;
 }
 h3.testBelbLabel {
-    margin-top: 24px;
+    margin-top: 50px;
     text-align: left;
     font-size: 30px;
     line-height: 35px;
@@ -104,5 +104,13 @@ section.instructionsText {
 
     .instructionsText p {
         font-size: 18px !important;
+    }
+
+    h1.testBelbLabel {
+        font-size: 30px !important;
+        line-height: 1.2;
+    }
+    h3.testBelbLabel {
+        font-size: 12px !important;
     }
 }
