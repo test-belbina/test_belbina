@@ -7,8 +7,8 @@ export default class ApiForm {
 	sendMail(name, email) {
 		fetch('/api.php', {
 					method: 'post',
-					// headers: {'Content-Type': 'application/json', 'Authorization': token},
-					body: JSON.stringify({name, email})
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify({action: 'mail', name, email})
 				}).then((result) => {
 					console.info('result', result);
 					//const token: TokenResponse = result.json;

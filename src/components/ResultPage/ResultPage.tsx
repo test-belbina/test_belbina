@@ -277,9 +277,6 @@ export default function ResultPage() {
                     <Form />
                 </div>
                 <div className={ styleClasses.shareButton }>
-					<a href="http://instagram.com/###?ref=badge" style={{display: 'inline-block', width: '16px', height: '16px', background: 'url(http://badges.instagram.com/static/images/ig-badge-sprite-16.png) no-repeat 0 0'}}>
-						<img src="http://badges.instagram.com/static/images/ig-badge-16.png" alt="Instagram" />
-					</a>
 					{/*<button onClick={ copyToClipboard }
                     style = { isCopied ? { color: "#5850F1" } : {} }
                     >

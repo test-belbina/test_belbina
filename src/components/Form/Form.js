@@ -63,11 +63,11 @@ const Form = (props) => {
             valid = false
         }
 
-        if (phone && isPossiblePhoneNumber(phone) === false) {
-            setPhoneError(`Некорректный номер телефона`)
-            setFormError(true)
-            valid = false
-        }
+        // if (phone && isPossiblePhoneNumber(phone) === false) {
+        //     setPhoneError(`Некорректный номер телефона`)
+        //     setFormError(true)
+        //     valid = false
+        // }
 
         if (isValidEmail(email) === false) {
             setEmailError(`Некорректный адрес email`)
@@ -138,7 +138,8 @@ const Form = (props) => {
 
                         <input
                             type="tel"
-                            placeholder="7 999 123-45-67"
+                            placeholder="7 999 123 45 67"
+							maxLength="13"
                             value={phone}
                             onChange={ (e) => onChangePhone(e.target.value) }
                         />
