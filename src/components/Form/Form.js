@@ -51,7 +51,7 @@ const Form = (props) => {
             setPhoneError('Заполните номер телефона');
             setFormError(true)
             valid = false
-        } else if (/[^\d\-\s]/.test(phone)){
+        } else if (/[^\+\d\-\s]/.test(phone)){
             setPhoneError('Введен некорректный номер телефона');
             setFormError(true)
             valid = false
@@ -88,6 +88,9 @@ const Form = (props) => {
         console.info('onChangePhone', value);
         setPhoneError('');
         setPhone(value);
+    }
+    const onPhonePress = (event) => {
+        if (!/[\d\s\-\+]/.test(event.key)) { event.preventDefault(); }
     }
 
     const onChangeEmail = (value) => {
@@ -138,9 +141,10 @@ const Form = (props) => {
 
                         <input
                             type="tel"
-                            placeholder="7 999 123 45 67"
-							maxLength="13"
+                            placeholder="8 999 123 45 67"
+							maxLength="16"
                             value={phone}
+                            onKeyPress={ onPhonePress }
                             onChange={ (e) => onChangePhone(e.target.value) }
                         />
 
@@ -163,12 +167,12 @@ const Form = (props) => {
                 </button>
             </div> }
 
-            { isSubmit && <div className={classes.body} style={{ paddingTop: 0 }}>
+            { isSubmit && <div className={classes.body} style={{ paddingTop: '30px' }}>
                  <h3>
                     Чек-лист отправлен!
                 </h3>
                 <div className={classes.component} style={{ alignItems: 'center', marginTop: 0 }}>
-                    <img src={ checkMark } style={{ width: '60%' }}/>
+                    <img src={ checkMark } style={{ width: '30%' }}/>
                 </div> 
 
             </div> }

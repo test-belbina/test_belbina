@@ -117,8 +117,8 @@
     }
     .body h3 {
         font-size: 28px !important;
-        margin-top: 10px !important;
-        margin-bottom: 0px !important;
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
     }
     .inputs .component label {
         font-size: 18px;
@@ -134,7 +134,7 @@
         padding: 20px;
     }
     .body h3 {
-        font-size: 25px;
+        font-size: 24px !important;
     }
     .inputs .component label {
         font-size: 15px;
