@@ -24,6 +24,9 @@ function App(props: any) {
                 <Route exact path="/test_result" render={(props: any) => 
                     <ResultPage {...props} />
                 }/>
+                <Route exact path="*">
+                    <Redirect to="/" />
+                </Route>
             </Switch>
     );
 }
