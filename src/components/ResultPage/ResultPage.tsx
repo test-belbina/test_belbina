@@ -235,7 +235,7 @@ export default function ResultPage() {
                         haracteristic={roles[supportedValue.category].haracteristic}
                         weakness={roles[supportedValue.category].weakness}
                         functionality={roles[supportedValue.category].functionality}
-                        description={roles[mainValue.category].description}
+                        description={roles[supportedValue.category].description}
                     />
                 </div>
                 <h2 style={{
@@ -258,7 +258,7 @@ export default function ResultPage() {
                         haracteristic={roles[smallest.category].haracteristic}
                         weakness={roles[smallest.category].weakness}
                         functionality={roles[smallest.category].functionality}
-                        description={roles[mainValue.category].description}
+                        description={roles[smallest.category].description}
                     />
                 </div>
                 <p className={styleClasses.bottomPar}>

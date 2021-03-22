@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/test-belbina/static/css/main.2ebf729e.chunk.css",
-    "main.js": "/test-belbina/static/js/main.6891145a.chunk.js",
-    "main.js.map": "/test-belbina/static/js/main.6891145a.chunk.js.map",
+    "main.js": "/test-belbina/static/js/main.41f62b8c.chunk.js",
+    "main.js.map": "/test-belbina/static/js/main.41f62b8c.chunk.js.map",
     "runtime-main.js": "/test-belbina/static/js/runtime-main.ef39f5cb.js",
     "runtime-main.js.map": "/test-belbina/static/js/runtime-main.ef39f5cb.js.map",
     "static/css/2.105e8b46.chunk.css": "/test-belbina/static/css/2.105e8b46.chunk.css",
@@ -30,6 +30,6 @@
     "static/css/2.105e8b46.chunk.css",
     "static/js/2.b7ae7fc1.chunk.js",
     "static/css/main.2ebf729e.chunk.css",
-    "static/js/main.6891145a.chunk.js"
+    "static/js/main.41f62b8c.chunk.js"
   ]
 }
